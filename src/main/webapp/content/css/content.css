@@ -1,0 +1,11 @@
+.content {
+	position: relative;
+	width: 45%;
+	left: 20%;
+	background: #666;
+	color: whitesmoke;
+	margin-top: 10px;
+}
+.contentOutLine {
+	outline:#00ff00 dotted thick;
+	}
