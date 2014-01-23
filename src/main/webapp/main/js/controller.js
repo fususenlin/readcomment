@@ -10,8 +10,8 @@ function ContentCtrl($scope) {
 		content : "sssqq",
 		commentMax : 2
 	};
-	$("xx").$scope.mouseover = function(ev) {
+	/*$("xx").$scope.mouseover = function(ev) {
 		$(".content").removeClass("contentOutLine");
 		$(ev.toElement).addClass("contentOutLine");
-	};
+	};*/
 }

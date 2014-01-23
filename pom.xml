@@ -1,21 +1,114 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com</groupId>
-  <artifactId>readcomment</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>readcomment Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <finalName>readcomment</finalName>
-  </build>
-</project>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com</groupId>
+	<artifactId>readcomment</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>readcomment</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<!-- junit4用来进行单元测试 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- struts2的核心包，其依赖包会自动下载 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.7</version>
+		</dependency>
+		<!-- struts2与spring的整合插件 -->
+		<!-- <dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.3.7</version>
+		</dependency> -->
+		<!-- spring的核心包，其他依赖包会自动下载 -->
+		<!-- <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency> -->
+		<!-- 使用spring的aop，aop要依赖aspectjweaver -->
+		<!-- <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.1</version>
+		</dependency> -->
+		<!-- log4j日志记录 -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<!-- 使用这里的工具类对字符串进行MD5加密 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<!-- 对action测试时添加这些依赖，但无法处理session的模拟，参考文章如下： http://struts.apache.org/2.2.1.1/docs/struts-2-junit-plugin-tutorial.html 
+			http://struts.apache.org/2.2.1.1/docs/junit-plugin.html http://blog.sina.com.cn/s/blog_4758a28b0100l2tp.html -->
+		<!-- <dependency> <groupId>org.apache.struts</groupId> <artifactId>struts2-junit-plugin</artifactId> 
+			<version>2.3.7</version> <scope>test</scope> </dependency> <dependency> <groupId>javax.servlet</groupId> 
+			<artifactId>jsp-api</artifactId> <version>2.0</version> <scope>test</scope> 
+			</dependency> <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
+			<version>2.4</version> </dependency> -->
+		<!-- dwr的jar包 -->
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>2.0.10</version>
+		</dependency>
+		<!-- derby数据库，这里还包含了它的jdbc驱动 -->
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.9.1.0</version>
+		</dependency>
+		<!-- hibernate的核心包，使用hibernate4时报错就改用了hibernate3 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.3.1.GA</version>
+		</dependency>
+		<!-- spring整合hibernate需要添加上spring的orm的jar包， 由于spring-orm是 依赖于spring-jdbc的， 
+			所以这里即使不配spring-jdbc，maven也会帮我们 下载下来这些依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+		<!-- hibernate-core依赖于slf4j-api，而slf4j-api需要一个实现类，这个 实现类jar可以是slf4j-nop.jar, 
+			slf4j-simple.jar, slf4j-log4j12.jar, slf4j-jdk14.jar ,logback-classic.jar其中之一 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.5.0</version>
+			<scope>system</scope>
+			<systemPath>C:\Program Files\Java\jdk1.7.0_51\lib\tools.jar</systemPath>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>readcomment</finalName>
+	</build>
+</project>  
