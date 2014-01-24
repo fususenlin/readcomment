@@ -1,10 +1,7 @@
-angular.module('main', []).
+angular.module('main', ['ui.bootstrap']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-      when('/content', 			{templateUrl: 'content/jsp/content.jsp',   controller: ContentCtrl}).
+      when('/content:number', 			{templateUrl: 'content/jsp/content.jsp',   controller: ContentCtrl}).
       otherwise({redirectTo: '/content'});
 }]);
 
-function aa(){
-	
-}

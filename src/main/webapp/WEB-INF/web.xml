@@ -2,13 +2,12 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"  
  "http://java.sun.com/dtd/web-app_2_3.dtd" >  
 <web-app>  
-    <display-name>Archetype Created Web Application</display-name>  
+    <display-name>readcomment</display-name>  
       
 <!--     <context-param>  
         <param-name>contextConfigLocation</param-name>  
         <param-value>classpath:applicationContext.xml</param-value>  
     </context-param>   -->
-    <!-- 配置Struts中心过滤器 -->  
     <filter>  
         <filter-name>struts2</filter-name>  
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  

@@ -7,6 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>readcomment</name>
 	<url>http://maven.apache.org</url>
+
 	<dependencies>
 		<!-- junit4用来进行单元测试 -->
 		<dependency>
@@ -22,28 +23,15 @@
 			<version>2.3.7</version>
 		</dependency>
 		<!-- struts2与spring的整合插件 -->
-		<!-- <dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-spring-plugin</artifactId>
-			<version>2.3.7</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.struts</groupId> <artifactId>struts2-spring-plugin</artifactId> 
+			<version>2.3.7</version> </dependency> -->
 		<!-- spring的核心包，其他依赖包会自动下载 -->
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>3.0.5.RELEASE</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> 
+			<version>3.0.5.RELEASE</version> </dependency> -->
 		<!-- 使用spring的aop，aop要依赖aspectjweaver -->
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>3.0.5.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.7.1</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-aop</artifactId> 
+			<version>3.0.5.RELEASE</version> </dependency> <dependency> <groupId>org.aspectj</groupId> 
+			<artifactId>aspectjweaver</artifactId> <version>1.7.1</version> </dependency> -->
 		<!-- log4j日志记录 -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -107,8 +95,36 @@
 			<scope>system</scope>
 			<systemPath>C:\Program Files\Java\jdk1.7.0_51\lib\tools.jar</systemPath>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.orbit</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<version>3.0.0.v201112011016</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-json-plugin</artifactId>
+			<version>2.3.14</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.25</version>
+		</dependency>
 	</dependencies>
 	<build>
+		<plugins>
+			<plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <url>http://localhost:8080/manager/text</url>
+                    <server>tomcat</server>
+                    <username>admin</username>
+                    <password>admin</password>
+                </configuration>
+            </plugin>
+		</plugins>
 		<finalName>readcomment</finalName>
 	</build>
 </project>  

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
-    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
-    
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-    <!-- 
-    -->
-    <constant name="struts.custom.i18n.resources" value="mess"></constant>
-    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
-    
-    <package name="test" extends="struts-default">
-        <global-results>
-            <result name="error"  type="redirect">/failure.jsp</result>
-            <result name="failure" type="redirect">/failure.jsp</result>
-        </global-results>
-      
+	<package name="index" extends="struts-default">
+		<action name="uploadify" class="act.UploadifyAction" method="doUpload">
+		</action>
+	</package>
+	<package name="json" extends="json-default">
+        <action name="paragraphList" class="act.ParagraphListAction">
+             <result type="json" />
+        </action>
+        
+        <action name="paragraphCount" class="act.ParagraphCountAction">
+             <result type="json" />
+        </action>
+        
+        <action name="login" class="act.LoginAction">
+             <result type="json" />
+        </action>
+        <action name="getBooks" class="act.UserBooksInfoAction">
+             <result type="json" />
+        </action>
     </package>
-</struts>
+</struts>    
