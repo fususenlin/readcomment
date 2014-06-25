@@ -1,0 +1,6 @@
+{
+  "proxy" : "http://10.167.251.83:8080",
+  "https-proxy" : "http://10.167.251.83:8080",
+  "strict-ssl": false,
+  "directory": "bower_components"
+}

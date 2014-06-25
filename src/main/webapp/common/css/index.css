@@ -1,0 +1,211 @@
+html {
+	height: 100%;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: url(../../asserts/images/backgrounds/body.jpg);
+	font-size: 12px;
+	line-height: 22px;
+	color: #5f5f5f;
+	min-height: 100%;
+	position: relative;
+}
+
+img {
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+
+a {
+	cursor: pointer;
+	text-decoration:none;
+}
+
+/* ===============================顶部标志=========================== */
+.top {
+	background: url(../../asserts/images/backgrounds/top.jpg) repeat-x 0 0;
+	height: 48px;
+	display: block;
+	width: 100%;
+	position: absolute;
+	z-index: 10000;
+	border-bottom: 1px solid #1c1c1c;
+}
+
+.top .logo {
+	float: left;
+	margin-top: 10px;
+}
+
+.top .topRight {
+	float: right;
+	position: relative;
+}
+
+ul.userFuction {
+	float: left;
+	margin: 10px 0 0 0;
+}
+
+ul.userFuction li {
+	display: inline-block;
+	margin: 0 0 0 10px;
+	background: #262626;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	box-shadow: 0 1px 0 #4e4e4e;
+	-webkit-box-shadow: 0 1px 0 #4e4e4e;
+	-moz-box-shadow: 0 1px 0 #4e4e4e
+}
+
+ul.userFuction li:hover {
+	background-color: #282828;
+}
+
+ul.userFuction li:active {
+	background-color: #242424;
+}
+
+ul.userFuction li a {
+	display: block;
+	height: 28px;
+	width: 28px;
+}
+
+ul.userFuction li a.search {
+	background: url(../../asserts/images/icons/usernav/search.png) no-repeat 9px 9px;
+}
+
+ul.userFuction li a.settings {
+	background: url(../../asserts/images/icons/usernav/settings.png) no-repeat 9px 9px;
+}
+
+ul.userFuction li a.logout {
+	background: url(../../asserts/images/icons/usernav/logout.png) no-repeat 9px 9px;
+}
+
+.sidebar {
+	display: block;
+	background: url(../../asserts/images/backgrounds/side.jpg) repeat-y;
+	min-height: 100%;
+	position: absolute;
+	z-index: 999;
+	border-right: 1px solid #c3c3c3;
+}
+
+.bottomLeft {
+	width: 100px;
+	background: url(../../asserts/images/backgrounds/sidebar.jpg);
+	float: left;
+	padding-top: 15px;
+	position: relative;
+	z-index: 99;
+	padding-top: 49px;
+}
+
+.bottomLeft .user {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	padding-top: 16px;
+	border-top: 1px solid #545454;
+}
+
+.bottomLeft .user a {
+	position: relative;
+	display: inline-block; /*width: 80px; margin: 0 auto;*/
+}
+
+.bottomLeft .user a>img {
+	box-shadow: 0 1px 3px #1e1e1e;
+	-webkit-box-shadow: 0 1px 3px #1e1e1e;
+	-moz-box-shadow: 0 1px 3px #1e1e1e;
+}
+
+.bottomLeft .user a>span {
+	background: url(../../asserts/images/backgrounds/sidebar.jpg);
+	padding: 0 2px 2px 2px;
+	position: absolute;
+	right: -2px;
+	top: 0;
+	display: block;
+	text-align: center;
+	-webkit-border-bottom-left-radius: 2px;
+}
+
+.bottomLeft .user a>span>strong {
+	font-size: 11px;
+	font-weight: bold;
+	display: block;
+	padding: 0px 5px;
+	color: white;
+	line-height: 17px;
+	height: 16px;
+	white-space: nowrap;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	background: #DA8854;
+	background: -moz-linear-gradient(top, #DA8854 0%, #C35A32 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DA8854),
+		color-stop(100%, #C35A32));
+	background: -webkit-linear-gradient(top, #DA8854 0%, #C35A32 100%);
+	background: -o-linear-gradient(top, #DA8854 0%, #C35A32 100%);
+	background: -ms-linear-gradient(top, #DA8854 0%, #C35A32 100%);
+	background: linear-gradient(top, #DA8854 0%, #C35A32 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#da8854',
+		endColorstr='#c35a32', GradientType=0);
+}
+.bottomLeft .user > span { display: block; color: #c2c2c2; margin-top: 10px; }
+
+.leftMain { text-align: center; margin-top: 10px; border-bottom: 1px solid #555555; }
+.leftMain li {position: relative; list-style-type :none; }
+.leftMain li a { display: block; padding: 14px 0 8px 0; color: #bababa; font-size: 11px; width: 100px; 
+background: -moz-linear-gradient(top,  rgba(86,86,86,0.2) 0%, rgba(54,54,54,0.2) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,86,86,0.2)), color-stop(100%,rgba(54,54,54,0.2)));
+background: -webkit-linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(54,54,54,0.2) 100%);
+background: -o-linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(54,54,54,0.2) 100%);
+background: -ms-linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(54,54,54,0.2) 100%);
+background: linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(54,54,54,0.2) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33565656', endColorstr='#33363636',GradientType=0 );
+float:right;
+}
+.leftMain li a span { display: block; padding-top: 4px; text-shadow: 0 1px 0 #303030; }
+.leftMain li a img { opacity: 0.5; filter: alpha(opacity=50); }
+.leftMain > li > a:hover { 
+background: -moz-linear-gradient(top,  rgba(86,86,86,0.2) 0%, rgba(54,54,54,0.1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,86,86,0.2)), color-stop(100%,rgba(86,86,86,0.1)));
+background: -webkit-linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(86,86,86,0.1) 100%);
+background: -o-linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(54,54,54,0.1) 100%);
+background: -ms-linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(54,54,54,0.1) 100%);
+background: linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(86,86,86,0.1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33565656', endColorstr='#1a363636',GradientType=0 );
+}
+.leftMain li a:active, .leftMain li a.active {  
+background: -moz-linear-gradient(top,  rgba(86,86,86,0.1) 0%, rgba(54,54,54,0.1) 100%);
+background: -webkit-linear-gradient(top,  rgba(120,120,120,0.2) 0%,rgba(120,120,120,0.3) 100%);
+background: -o-linear-gradient(top,  rgba(128,128,128,0.4) 0%,rgba(115,115,115,0.3) 100%);
+background: -ms-linear-gradient(top,  rgba(86,86,86,0.2) 0%,rgba(54,54,54,0.1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33565656', endColorstr='#1a363636',GradientType=0 );
+}
+.leftMain li a.active { color: #f4f4f4;   }
+.leftMain li a.active img, .leftMain li a:hover img { opacity: 1; filter: alpha(opacity=100); -webkit-transition: opacity 0.3s ease-in-out; -moz-transition: opacity 0.3s ease-in-out; transition: opacity 0.3s ease-in-out; }
+.leftMain > li > a:hover { color: #f4f4f4; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+
+.leftMain li:hover ul { display: block; }
+.leftMain li ul { display: none; position: absolute; top: 0; font-size: 11px; min-width: 170px; white-space: nowrap; padding-left: 12px; left: 100px; border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; text-align: left; background: url(../images/elements/other/userArrow.png) 5px 11px no-repeat; z-index: 1000; }
+.leftMain li ul li { border-bottom: 1px solid #343434; border-top: 1px solid #545454; background: url(../images/backgrounds/sidebar.jpg);  }
+.leftMain li ul li:hover { background: #454545; }
+.leftMain li ul li:first-child { border-top: none; -webkit-border-top-left-radius: 2px; -webkit-border-top-right-radius: 2px;  }
+.leftMain li ul li:last-child { border-bottom: none; -webkit-border-bottom-left-radius: 2px;  -webkit-border-bottom-right-radius: 2px;  }
+.leftMain li ul li a { display: block; padding: 8px 14px 8px 14px; color: #c2c2c2; width: auto; }
+.leftMain li ul li a span { padding-top: 3px; float: left; }
+.leftMain li ul li a [class*="icol-"] { opacity: 0.5; filter: alpha(opacity=50); padding-top: 4px; }
+.leftMain li ul li ul { left: auto; right: 0; position: static; padding-left: 0; background: #505050; }
+.leftMain li ul li [class*="dataNum"] { box-shadow: 0 0px 1px #101010; -webkit-box-shadow: 0 0px 1px #101010; -moz-box-shadow: 0 0px 1px #101010; }
+.leftMain li ul li ul li { border-top: 1px solid #606060; border-bottom: 1px solid #404040; }
+.leftMain li ul li ul li:hover { background-color: #555; }
+.leftMain li ul li ul li, .leftMain li ul li ul li a { background: none; }

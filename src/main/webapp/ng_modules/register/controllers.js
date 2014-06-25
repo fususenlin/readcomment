@@ -1,0 +1,3 @@
+var RegisterCtrl = function($scope) {
+
+};

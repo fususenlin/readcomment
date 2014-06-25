@@ -1,0 +1,36 @@
+.mod-notfound {
+	border-right: #e1e1e1 1px solid;
+	border-top: #e1e1e1 1px solid;
+	margin-top: 10px;
+	background: #fff;
+	border-left: #e1e1e1 1px solid;
+	border-bottom: #e1e1e1 1px solid;
+	height: 700px;
+	text-align: center;
+	border-radius: 10px overflow: hidden;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.mod-notfound .img-notfound{
+	height: 320px;
+	width: 520px;
+	margin-top: 50px;	
+}
+
+.mod-notfound .p1{
+	 font-size: 24px;
+	 line-height: 70px;
+}
+
+.bottom {
+	height: 5%;
+}
+
+.bottom .copyright {
+	text-align: center;
+}
+
+.bottom .ICP {
+	text-align: center;
+}

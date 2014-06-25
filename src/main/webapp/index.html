@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="developer">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="common/css/authorize.css" type="text/css">
+<link rel="stylesheet" href="common/css/index.css" type="text/css" />
+
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+
+<script type="text/javascript" src="vendor/angular/angular-frame.js"></script>
+
+<!-- 与顺序无关的导入方式 ，不需要先导入引用模块 -->
+<script type="text/javascript" src="ng_modules/register/ng_modules/test1/ng_modules/m1/app.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/javascript" src="ng_modules/register/ng_modules/test1/app.js"></script>
+<script type="text/javascript" src="ng_modules/register/app.js"></script>
+
+
+<script type="text/javascript" src="common/in-min.js" autoload="true"></script>
+
+<script>
+	var duoshuoQuery = {
+		short_name : "limaoshengcpp"
+	};
+</script>
+<script src="http://static.duoshuo.com/embed.js"></script>
+<script src="vendor/duoshuo/duoshuo.js"></script>
+</head>
+<body>
+    <!------------ 顶部开始------------------->
+    <div id="top">
+        <div class="wrapper">
+            <!-------顶部左边置放标志-------->
+
+            <a href="index.html" title="" class="logo"> 品阅中文网 </a>
+
+            <!---------------顶部右边---------------->
+            <div class="topNav">
+                <ul class="userNav">
+                    <li>
+                        <a href="#/register">register</a>
+                    </li>
+                    <li>
+                        <a href="#/login">login</a>
+                    </li>
+                    <li>
+                        <a href="#/current">current</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!------------ 顶部结束------------------>
+
+    <!-- ----------中间部分-------------- -->
+    <div ng-view></div>
+    <!-- ----------中间结束-------------- -->
+
+    <!-- ----------底部部分-------------- -->
+    <div class="bottom">
+        <div class="copyright">
+            <h6>Copyright 2000 - 2014 @李茂盛</h6>
+        </div>
+        <div class="ICP">
+            <h6>京ICP备05052384号 京公网安备110105009918</h6>
+        </div>
+    </div>
+    <!-- ----------底部结束-------------- -->
+</body>
+</html>

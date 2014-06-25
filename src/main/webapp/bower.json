@@ -1,0 +1,14 @@
+{
+  "name": "carp-authorization-developer",
+  "version": "0.0.1",
+  "main": "index.html",
+  "dependencies": {
+    "angular": ">=1.2.0",
+    "angular-animate": ">=1.2.0",
+	"angular-route": ">=1.2.0",
+	"angular-sanitize": ">=1.2.0",
+	"angular-grid": ">=1.2.0",
+	"fontawesome":">=4.1.0",
+	"bootstrap":">=3.1.1"
+  }
+}

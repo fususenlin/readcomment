@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  
+    
+    <div class="container">
+        <div class="row clearfix">
+            <div class=" col-md-12 column">
+                <div class="row clearfix">
+                    <div class="register col-md-7 column">
+                        <input type="text" ng-model="duoshuo_key">
+                    </div>
+                    <div class="col-md-5 column">
+                        <!-- 多说评论框 start -->
+                        <div class="ds-thread" data-thread-key="{{duoshuo_key}}" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+                        <!-- 多说评论框 end -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

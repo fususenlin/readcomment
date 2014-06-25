@@ -1,0 +1,224 @@
+html {
+	height: 100%;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: url(../../asserts/images/backgrounds/body.jpg);
+	font-size: 15px;
+	line-height: 22px;
+	color: #5f5f5f;
+	min-height: 100%;
+	position: relative;
+}
+
+strong { font-weight: 700; }
+.red { color: #eb4141; }
+
+/* ===============================顶部标志=========================== */
+#top {
+	background: url(../../asserts/images/backgrounds/top.jpg) repeat-x 0 0;
+	height: 48px;
+	display: block;
+	width: 100%;
+	position: absolute;
+	z-index: 10000;
+	border-bottom: 1px solid #1c1c1c;
+}
+
+.wrapper {
+	margin: 0 30px;
+}
+
+.logo {
+	float: left;
+	margin-top: 10px;
+}
+
+.topNav {
+	float: right;
+	position: relative;
+}
+
+#sidebar ul.userNav {
+	display: none;
+}
+
+ul.userNav {
+	float: left;
+	margin: 10px 0 0 0;
+}
+
+ul.userNav li {
+	display: inline-block;
+	margin: 0 0 0 10px;
+	background: #262626;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	box-shadow: 0 1px 0 #4e4e4e;
+	-webkit-box-shadow: 0 1px 0 #4e4e4e;
+	-moz-box-shadow: 0 1px 0 #4e4e4e
+}
+
+ul.userNav li:hover {
+	background-color: #282828;
+}
+
+ul.userNav li:active {
+	background-color: #242424;
+}
+
+ul.userNav li a {
+	display: block;
+	height: 28px;
+	width: 28px;
+}
+
+ul.userNav li a.topRegister {
+	background: url(../../asserts/images/icons/usernav/register.png) no-repeat 9px 9px;
+}
+
+/*-------------------电话图片-----------------*/
+#content { padding-bottom: 10px; position: relative; margin-left: 327px; padding-top: 49px; }
+.iphone {
+    text-align: right;
+    width:30%;float:left
+}
+.iphone img { margin-right: 10px; float:left;width:100%}
+
+/* ------------ 注册表格 --------------- */
+
+.register{margin-top:90px;}
+
+.register form {
+    padding: 10px 30px 30px 40px;
+    background: #f8f8f8 url(../../asserts/images/pattern.jpg) left top repeat;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+    text-align: center;
+   /*  float:left; */
+}
+
+.register form h2 {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+   /*  background: url(../../asserts/images/pencil.png) 70px 6px no-repeat; */
+    border-bottom: 2px dotted #bbb;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.register form input {
+    
+    background: #fcfcfc;
+    border: 1px solid #ddd;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,.1) inset;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.1) inset;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1) inset;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    color: #888;
+    font-size: 16px;
+}
+
+.register form input:focus {
+    border: 1px solid #ccc;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.register form label {
+    margin: 7px 0 10px 5px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.register form label span {
+    font-style: italic;
+}
+
+.register form input:-moz-placeholder { color: #aaa; }
+.register form input:-ms-input-placeholder { color: #aaa; }
+.register form input::-webkit-input-placeholder { color: #aaa; }
+
+.register form button {
+    cursor: pointer;
+    width: 60%;
+    height: 42px;
+    margin-top: 25px;
+    padding: 0;
+    background: #eb4141;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 0;
+    -moz-box-shadow: 0 15px 30px 0 rgba(255,255,255,.1) inset;
+    -webkit-box-shadow: 0 15px 30px 0 rgba(255,255,255,.1) inset;
+    box-shadow: 0 15px 30px 0 rgba(255,255,255,.1) inset;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+
+.register form button:hover {
+    -moz-box-shadow: 0 -15px 30px 0 rgba(255,255,255,.05) inset;
+    -webkit-box-shadow: 0 -15px 30px 0 rgba(255,255,255,.05) inset;
+    box-shadow: 0 -15px 30px 0 rgba(255,255,255,.05) inset;
+}
+
+.register form button:active {
+    -moz-box-shadow:
+        0 -15px 30px 0 rgba(255,255,255,.05) inset,       
+        0 5px 8px 0 rgba(0,0,0,.1) inset;
+    -webkit-box-shadow:
+        0 -15px 30px 0 rgba(255,255,255,.05) inset,       
+        0 5px 8px 0 rgba(0,0,0,.1) inset;
+    box-shadow:
+        0 -15px 30px 0 rgba(255,255,255,.05) inset,       
+        0 5px 8px 0 rgba(0,0,0,.1) inset;
+}
+
+.row{
+	/* margin-left:-200px; */
+	margin-top:40px;
+}
+
+.register .left{}
+.register .left .left-main{}
+.register .left .left-main .input-group{margin-top: 10px;}
+
+.register .right{border-left: 0;padding-left:10px;}
+.register .right a{font-weight: 700;font-size: 15px;}
+.register .right .right-top{ border-bottom: 2px dotted #bbb;}
+.register .right .right-bottom{ margin-top:10px;}
+
+.chechbox-fix{margin-left:10px;margin-top:0px;}
+.chechbox-fix label{font-size:15px ! important;float:left;}
+
+/* ------------ 底部公司名称 --------------- */
+.bottom .copyright{
+	text-align:center;
+	margin-bottom:10px;
+}
+.bottom .ICP{
+	text-align:center;
+	margin-bottom:30px;
+}
+@media (min-width: 992px){
+	.register .right{border-left: 2px dotted #bbb;}
+}

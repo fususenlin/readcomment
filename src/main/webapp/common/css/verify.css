@@ -1,0 +1,65 @@
+a font {
+	font-size: 10px;
+	color:#5f5f5f;;
+}
+
+#randImage {
+	width: 100px;
+	height: 30px;
+	border: 1px;
+}
+
+/*---------------验证部分-------------------*/
+.verify {
+	width: 244px;
+}
+
+/*---------------左边验证部分-------------------*/
+.verify .verifyLeft {
+	width: 122px;
+	height: 60px;
+	float: left;
+	/* padding-right:20px; */
+	/* margin-right: 10px; */
+}
+.verify .verfyLeft .verifyLeftTop {
+	height: 30px;
+	/* float: top; */
+	padding: 10px;
+}
+
+.verify .verfyLeft .verifyLeftBottom {
+	height: 30px;
+	/* float: top; */
+    text-align:left;
+}
+
+.verify .verifyLeft .verifyLeftTop input {
+	width: 110px;
+	height: 30px;
+}
+
+.verifyLeftBottom  font{
+	font-size: 10px;
+	color:#eb4141;
+}
+
+
+/*---------------右边验证部分-------------------*/
+.verify .verfyRight {
+	width: 122px;
+	height: 60px;
+	float: left;
+	/* padding-left:20px; */
+}
+
+.verify .verfyRight .verifyRightTop {
+	height: 30px;
+	float: top;
+	padding: 10px;
+}
+
+.verify .verfyRight .verifyRightBottom {
+	height: 30px;
+	float: top;
+}
