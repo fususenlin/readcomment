@@ -16,7 +16,7 @@
 
         <property name="hibernate.connection.pool_size">10</property>
 
-        <property name="show_sql">false</property>
+        <property name="show_sql">true</property>
 
         <property name="dialect"> org.hibernate.dialect.MySQLDialect</property>
         
