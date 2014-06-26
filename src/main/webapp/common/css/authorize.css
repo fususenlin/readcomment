@@ -21,7 +21,6 @@ strong { font-weight: 700; }
 	height: 48px;
 	display: block;
 	width: 100%;
-	position: absolute;
 	z-index: 10000;
 	border-bottom: 1px solid #1c1c1c;
 }
@@ -33,6 +32,10 @@ strong { font-weight: 700; }
 .logo {
 	float: left;
 	margin-top: 10px;
+	font-weight: bolder;
+    font-size: x-large;
+    font-family: "微软雅黑";
+    color: #ECECEC!important;
 }
 
 .topNav {
@@ -52,13 +55,17 @@ ul.userNav {
 ul.userNav li {
 	display: inline-block;
 	margin: 0 0 0 10px;
-	background: #262626;
+	background: #D1D1D1;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
 	box-shadow: 0 1px 0 #4e4e4e;
 	-webkit-box-shadow: 0 1px 0 #4e4e4e;
-	-moz-box-shadow: 0 1px 0 #4e4e4e
+	-moz-box-shadow: 0 1px 0 #4e4e4e;
+	height: 30px;
+width: 30px;
+line-height: 36px;
+text-align: center;
 }
 
 ul.userNav li:hover {
@@ -70,13 +77,8 @@ ul.userNav li:active {
 }
 
 ul.userNav li a {
-	display: block;
-	height: 28px;
-	width: 28px;
-}
-
-ul.userNav li a.topRegister {
-	background: url(../../asserts/images/icons/usernav/register.png) no-repeat 9px 9px;
+	color: #d32;
+    font-size: 18px;
 }
 
 /*-------------------电话图片-----------------*/
@@ -221,4 +223,10 @@ ul.userNav li a.topRegister {
 }
 @media (min-width: 992px){
 	.register .right{border-left: 2px dotted #bbb;}
+}
+.file-preview-text {
+	overflow: hidden;
+}
+.file-preview-text {
+	display: block!important;
 }

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<package name="index" extends="struts-default">
-		<action name="uploadify" class="act.UploadifyAction" method="doUpload">
-		</action>
-	</package>
-	<package name="json" extends="json-default">
-        <action name="paragraphList" class="act.ParagraphListAction">
-             <result type="json" />
+	<package name="base" namespace="/" extends="struts-default">
+        <action name="loadbook" class="modules.loadBook.LoadBookAction">
+            <result name="success" type="redirect">/index.html#/current</result>
+            <result name="input" type="redirect">/index.html#/current</result>  
+        </action>
+    </package>
+    <package name="json" namespace="/" extends="json-default">
+        <action name="books" class="modules.books.BooksAction">
+            <result type="json"></result>  
+        </action>
+        <action name="contents" class="modules.contents.ContentsAction">
+            <result type="json"></result>  
         </action>
         
-        <action name="paragraphCount" class="act.ParagraphCountAction">
-             <result type="json" />
+        <action name="booksCount" class="modules.books.BooksCountAction">
+            <result type="json"></result>  
         </action>
-        
-        <action name="login" class="act.LoginAction">
-             <result type="json" />
-        </action>
-        <action name="getBooks" class="act.UserBooksInfoAction">
-             <result type="json" />
+        <action name="contentsCount" class="modules.contents.ContentsCountAction">
+            <result type="json"></result>  
         </action>
     </package>
 </struts>    

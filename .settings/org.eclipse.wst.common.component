@@ -3,7 +3,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resource"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <property name="java-output-path" value="/readcomment/target"/>
         <property name="context-root" value="readcomment"/>
+        <property name="java-output-path" value="/readcomment/target/classes"/>
     </wb-module>
 </project-modules>
