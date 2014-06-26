@@ -230,3 +230,6 @@ ul.userNav li a {
 .file-preview-text {
 	display: block!important;
 }
+.carousel {
+	height: 300px;
+}

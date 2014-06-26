@@ -6,13 +6,13 @@ angular.load({
 	/* 导入的依赖模块 */
 	import : [ 'ngRoute','angularFileUpload'],
 	/* 依赖的子模块 ，如果没有预定义,会自动生成模块 和路由 */
-	dependences : [ 'current', 'login', 'register','upload','uploadbook' ]
+	dependences : [ 'books', 'read', 'login', 'register','upload','uploadbook' ]
 
 }).run(function($rootScope, $location) {
 	console.log("dwqdwqd");
 }).config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.otherwise({
-		redirectTo : '/current'
+		redirectTo : '/books'
 	});
 } ]).directive('ngThumb', ['$window', function($window) {
         var helper = {
