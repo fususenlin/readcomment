@@ -39,6 +39,7 @@ public class BooksAction extends ActionSupport {
 			book.setId(obj.get("_id").toString());
 			book.setTitle(obj.get("title").toString());
 			book.setAuthor(obj.get("author").toString());
+			book.setImageUrl(obj.get("imageUrl").toString());
 			books.add(book);
 			System.out.println(obj.toString());
 		}

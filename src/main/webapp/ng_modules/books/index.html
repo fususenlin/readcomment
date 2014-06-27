@@ -5,35 +5,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <div class="row">
-        <div class="col-md-12">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="asserts/images/blog.png" alt="...">
-                        <div class="carousel-caption">
-                            <h3>黑客与设计</h3>
-                            <p>天生我才</p>
-                        </div>
-                    </div>
-                    忽悠
+    <div class="row" >
+        <div class="col-sm-6 col-md-4" ng-repeat="book in books">
+            <div class="thumbnail">
+                <img ng-src="asserts/images/backgrounds/1.jpg" alt="..." class="img-thumbnail">
+                <div class="caption">
+                   
+                    <blockquote>
+                        <h2 ng-bind="book.title"></h2>
+                        <small ng-bind="book.author"></small>
+                        <p ng-bind="book.id"></p>
+                        <p ng-bind="book.imageUrl"></p>
+                    </blockquote>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">Button</a>
+                        <a href="#" class="btn btn-default" role="button">Button</a>
+                    </p>
                 </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
             </div>
         </div>
     </div>

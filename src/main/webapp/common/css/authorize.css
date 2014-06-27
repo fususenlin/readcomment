@@ -233,3 +233,6 @@ ul.userNav li a {
 .carousel {
 	height: 300px;
 }
+blockquote p:last-child, blockquote ul:last-child, blockquote ol:last-child {
+	word-wrap: break-word;
+}

@@ -1,8 +1,11 @@
-var BooksCtrl = function($scope) {
-	$scope.number = 0;
+var BooksCtrl = function($scope, $http) {
 
-	setInterval(function() {
-		$scope.number = $scope.number + 1;
-		$scope.$$phase || $scope.$apply();
-	}, 50);
+	$http({
+		url : "books",
+		data : {}
+	}).success(function(data, status, headers, config) {
+		$scope.books = data.books;
+	}).error(function(data, status, headers, config) {
+		alert("error");
+	});
 };

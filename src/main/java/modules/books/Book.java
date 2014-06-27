@@ -1,9 +1,11 @@
 package modules.books;
 
 public class Book {
+
 	private String id;
 	private String title;
 	private String author;
+	private String imageUrl;
 
 	public String getId() {
 		return id;
@@ -27,6 +29,14 @@ public class Book {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 }
