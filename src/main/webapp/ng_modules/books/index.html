@@ -5,25 +5,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
     <div class="row" >
         <div class="col-sm-6 col-md-4" ng-repeat="book in books">
             <div class="thumbnail">
-                <img ng-src="asserts/images/backgrounds/1.jpg" alt="..." class="img-thumbnail">
+               <!--  <img ng-src="asserts/images/backgrounds/1.jpg" alt="..." class="img-thumbnail"> -->
                 <div class="caption">
-                   
                     <blockquote>
                         <h2 ng-bind="book.title"></h2>
                         <small ng-bind="book.author"></small>
-                        <p ng-bind="book.id"></p>
-                        <p ng-bind="book.imageUrl"></p>
+                        <p ng-bind="book.note"></p>
                     </blockquote>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">Button</a>
-                        <a href="#" class="btn btn-default" role="button">Button</a>
+                    <p class="text-right">
+                        <a href="#/read?book={{book.id}}" class="btn btn-primary" role="button">阅读</a>
+                        <!-- <a href="#" class="btn btn-default" role="button">Button</a> -->
                     </p>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>

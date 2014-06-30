@@ -3,16 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="common/css/read.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  
-    
+    <div class="header">
+        <div class="header-title text-left" ng-bind="book.name"></div>
+        <div class="header-ctrls text-right">
+            <span class="fa fa-bookmark-o"></span>
+            <span class="fa fa-heart"></span>
+            <span class="fa fa-share-alt"></span>
+        </div>
+    </div>
     <div class="container">
+        <!-- <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                     <img ng-src="asserts/images/backgrounds/1.jpg" alt="..." class="img-thumbnail">
+                    <div class="caption">
+                        
+                    </div>
+                </div>
+            </div>
+        </div> -->
         <div class="row clearfix">
             <div class=" col-md-12 column">
                 <div class="row clearfix">
-                    <div class="register col-md-7 column">
-                        <input type="text" ng-model="duoshuo_key">
+                    <div class="content col-md-7 column">
+                        <p ng-repeat="content in contents track by $index"  ng-class="{'has-comment':content.commentCount>0}" ng-if="content">
+                            <span ng-bind="content" ></span>
+                            <span><i class="fa fa-edit"></i></span>
+                        </p>
                     </div>
                     <div class="col-md-5 column">
                         <!-- 多说评论框 start -->
@@ -24,6 +44,6 @@
             </div>
         </div>
     </div>
-   
+
 </body>
 </html>
