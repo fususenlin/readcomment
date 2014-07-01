@@ -1,49 +1,62 @@
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <link href="common/css/read.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="header">
-        <div class="header-title text-left" ng-bind="book.name"></div>
+        <div class="header-title text-left"></div>
         <div class="header-ctrls text-right">
-            <span class="fa fa-bookmark-o"></span>
-            <span class="fa fa-heart"></span>
-            <span class="fa fa-share-alt"></span>
+            <span class="fa fa-bookmark-o" ng-click="bookmark()" ng-hide="isMarked"></span>
+            <span class="fa fa-bookmark" ng-click="bookmark()" ng-show="isMarked"></span>
+            <span class="fa fa-comments-o" ng-show="comment" ng-click="comment=false"></span>
+            <span class="fa fa-comments" ng-hide="comment" ng-click="comment=true"></span>
+            <!-- <span class="fa fa-heart"></span> -->
+            <!-- <span class="fa fa-share-alt"></span> -->
         </div>
     </div>
     <div class="container">
-        <!-- <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                     <img ng-src="asserts/images/backgrounds/1.jpg" alt="..." class="img-thumbnail">
-                    <div class="caption">
-                        
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="row clearfix">
             <div class=" col-md-12 column">
                 <div class="row clearfix">
-                    <div class="content col-md-7 column">
-                        <p ng-repeat="content in contents track by $index"  ng-class="{'has-comment':content.commentCount>0}" ng-if="content">
-                            <span ng-bind="content" ></span>
-                            <span><i class="fa fa-edit"></i></span>
-                        </p>
+                    <div class="column" ng-class="{'col-md-7':comment,'col-md-12':!comment}">
+                        <div class="content">
+                             <p ng-repeat="content in contents track by $index" ng-click="duoshuo($index)" ng-if="content.content" ng-init="content.duoshuo=true">
+                                <span ng-bind="content.content"></span>
+                            </p>
+                        </div>
+                       
+                        <ul class="pager">
+                            <li>
+                                <a ng-click="last()">&larr; 上一页</a>
+                            </li>
+                            <li>
+                                <a ng-click="next()">下一页 &rarr;</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-md-5 column">
-                        <!-- 多说评论框 start -->
-                        <div class="ds-thread" data-thread-key="{{duoshuo_key}}" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
-                        <!-- 多说评论框 end -->
+                    <div class="col-md-5 column" ng-show="comment">
+                        
+                        <div class="thumbnail" ng-show="current">
+                            <div class="caption">
+                                <blockquote>
+                                    <p ng-bind="current"></p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <!-- 多说评论框 start -->
+                                <div id="duoshuo"></div>
+                                <!-- 多说评论框 end -->
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>

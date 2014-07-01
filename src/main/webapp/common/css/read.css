@@ -1,69 +1,3 @@
-#top {
-	display: none;
-}
-
-.header {
-	height: 40px;
-	width: 100%;
-	position: fixed;
-	left: 0;
-	top: 0;
-	background: url(../../asserts/images/texture.png) 0 0 repeat-x;
-	z-index: 555;
-}
-
-.header-ctrls {
-	height: 100%;
-	line-height: 40px;
-	position: relative;
-	padding-right: 20px;
-}
-
-.header-ctrls span {
-	border: thin solid #777;
-	border-radius: 45px;
-	font-size: 16px;
-	margin-right: 15px;
-	color: #777;
-	width: 24px;
-	height: 24px;
-	text-align: center;
-	line-height: 24px;
-	cursor:pointer;
-}
-
-.header-ctrls span:hover {
-    color:#d32;
-}
-
-.container {
-	height: 100%;
-	overflow-y: scroll;
-}
-
-.content {
-	font-size: 15px;
-	word-break: break-all;
-	word-spacing: 2px;
-	word-wrap: break-word;
-	border-right: 1px solid #ccc;
-}
-
-.content p {
-	margin-bottom: 1.5em;
-	text-indent: 2em;
-	margin: 0 0 10px;
-}
-.content .has-comment {
-    border-left: 2px solid #d32;
-    padding-left: 10px;
-}
-.content p span {
-	margin-bottom: 1.5em;
-	text-indent: 2em;
-	margin: 0 0 10px;
-}
-
 ::-webkit-scrollbar {
 	width: 8px;
 	height: 8px;
@@ -104,9 +38,111 @@ body {
 	scrollbar-3dlight-color: #f0f0f0;
 	scrollbar-arrow-color: #606060;
 	scrollbar-darkshadow-color: #cdcdcd;
+	overflow: hidden;
+}
+
+.header {
+	height: 40px;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: url(../../asserts/images/texture.png) 0 0 repeat-x;
+	z-index: 555;
+}
+
+.header-ctrls {
+	height: 100%;
+	line-height: 40px;
+	position: relative;
+	padding-right: 20px;
+}
+
+.header-ctrls span {
+	border: thin solid #777;
+	border-radius: 45px;
+	font-size: 16px;
+	margin-right: 15px;
+	color: #777;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.header-ctrls span:hover {
+	color: #d32;
+}
+
+.container {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.content {
+	font-size: 18px;
+	line-height: 25px;
+	word-break: break-all;
+	word-spacing: 2px;
+	word-wrap: break-word;
+	height: 650px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 10px 16px;
+}
+
+.content p {
+	margin-bottom: 1.5em;
+	text-indent: 2em;
+	margin: 0 0 10px;
+	position: relative
+}
+.content p:hover {
+    background: #ECECEC;
+}
+
+.content p:hover::after {
+	bottom: 0;
+    content: "";
+    height: 100%;
+    width: 2px;
+    background: #E2227E;
+    position: absolute;
+    left: -16px;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    -webkit-box-shadow: 0 0px 18px 2px rgba(0,0,0,0.35), inset 0 9px 0 rgba(255,255,255,0.16);
+    -moz-box-shadow: 0 0px 18px 2px rgba(0,0,0,0.35), inset 0 9px 0 rgba(255,255,255,0.16);
+    box-shadow: 0 0px 18px 2px rgba(0,0,0,0.35), inset 0 9px 0 rgba(255,255,255,0.16);
+}
+
+.content .has-comment {
+	border-left: 2px solid #d32;
+	padding-left: 10px;
+}
+
+.content p span {
+	margin-bottom: 1.5em;
+	text-indent: 2em;
+	margin: 0 0 10px;
+}
+.header-ctrls .fa-bookmark,.header-ctrls .fa-comments {
+    color: #d32;
 }
 
 body,input,button,textarea {
 	font-family: \"Microsoft YaHei\", \5FAE\8F6F\96C5\9ED1, arial,
 		sans-serif;
+}
+
+.thumbnail .caption p {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.ds-comments {
+	height: 270px;
+	overflow-y: auto !important;
 }

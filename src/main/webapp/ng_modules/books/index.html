@@ -2,28 +2,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="common/css/book.css" type="text/css" />
 </head>
 <body>
-<div class="container">
-    <div class="row" >
-        <div class="col-sm-6 col-md-4" ng-repeat="book in books">
-            <div class="thumbnail">
-               <!--  <img ng-src="asserts/images/backgrounds/1.jpg" alt="..." class="img-thumbnail"> -->
-                <div class="caption">
-                    <blockquote>
-                        <h2 ng-bind="book.title"></h2>
-                        <small ng-bind="book.author"></small>
-                        <p ng-bind="book.note"></p>
-                    </blockquote>
-                    <p class="text-right">
-                        <a href="#/read?book={{book.id}}" class="btn btn-primary" role="button">阅读</a>
-                        <!-- <a href="#" class="btn btn-default" role="button">Button</a> -->
-                    </p>
-                </div>
+    <!------------ 顶部开始------------------->
+    <div id="top">
+        <div class="wrapper">
+            <!-------顶部左边置放标志-------->
+
+            <a href="index.html" title="" class="logo"> 品阅中文网 </a>
+
+            <!---------------顶部右边---------------->
+            <div class="topNav">
+                <ul class="userNav">
+                    <!--                     <li>
+                        <a class="fa fa-edit" href="#/current"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-upload" href="#/upload"></a>
+                    </li> -->
+                    <li>
+                        <a class="fa fa-plus" href="#/uploadbook"></a>
+                    </li>
+                    <!--                     <li>
+                        <a class="fa fa-upload" href="#/register"></a>
+                    </li> -->
+                </ul>
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="book in books">
+                <div class="thumbnail">
+                    <!--  <img ng-src="asserts/images/backgrounds/1.jpg" alt="..." class="img-thumbnail"> -->
+                    <div class="caption">
+                        <blockquote>
+                            <h2 ng-bind="book.title"></h2>
+                            <small ng-bind="book.author"></small>
+                            <p ng-bind="book.note"></p>
+                        </blockquote>
+                        <p class="text-right">
+                            <a href="#/read?book={{book.id}}&title={{book.title}}" class="btn btn-primary" role="button">阅读</a>
+                            <!-- <a href="#" class="btn btn-default" role="button">Button</a> -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

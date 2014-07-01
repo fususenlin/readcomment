@@ -1,4 +1,5 @@
-var UploadbookCtrl = function($scope,$fileUploader) {
+var UploadbookCtrl = function($scope,$rootScope,$fileUploader) {
+	$rootScope.title="新增书籍";
 	setTimeout(function(){
 		$("#file-1").fileinput({
 			 browseLabel:"浏览",

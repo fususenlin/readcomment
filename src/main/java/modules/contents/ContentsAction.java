@@ -17,7 +17,7 @@ public class ContentsAction extends ActionSupport {
 	private String book;
 	private int start; // 从某处开始获取 0
 	private int limit; // 获取N个
-	private List<String> contents;
+	private List<Content> contents;
 
 	@Override
 	public String execute() throws IOException {
@@ -32,7 +32,7 @@ public class ContentsAction extends ActionSupport {
 		BasicDBObject queryContent = new BasicDBObject();
 		queryContent.put("book", this.getBook());
 
-		contents = new ArrayList<String>();
+		contents = new ArrayList<Content>();
 
 		DBCursor cursor = contentsCollection.find(queryContent);
 		if (this.getLimit() != 0) {
@@ -42,7 +42,9 @@ public class ContentsAction extends ActionSupport {
         //循环输出结果
         while (cursor.hasNext()) {
 			DBObject obj = cursor.next();
-			contents.add(obj.get("content").toString());
+			Content content = new Content();
+			content.setContent(obj.get("content").toString());
+			contents.add(content);
 			System.out.println(obj.toString());
 		}
 
@@ -50,11 +52,11 @@ public class ContentsAction extends ActionSupport {
 		return "success";
 	}
 
-	public List<String> getContents() {
+	public List<Content> getContents() {
 		return contents;
 	}
 
-	public void setContents(List<String> contents) {
+	public void setContents(List<Content> contents) {
 		this.contents = contents;
 	}
 

@@ -82,6 +82,9 @@ public class LoadBookAction extends ActionSupport {
 		BufferedReader br = new BufferedReader(inr);
 		String str = new String();
 		while ((str = br.readLine()) != null) {
+			if ("".equals(str)) {
+				continue;
+			}
 			System.out.println(str);
 			BasicDBObject content = new BasicDBObject();
 			content.put("book", bookId);
