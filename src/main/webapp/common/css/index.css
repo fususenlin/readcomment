@@ -17,7 +17,9 @@ img {
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 }
-
+.container {
+	background: url(../../asserts/images/backgrounds/body.jpg);
+}
 a {
 	cursor: pointer;
 	text-decoration:none;
@@ -209,3 +211,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33565656', e
 .leftMain li ul li ul li { border-top: 1px solid #606060; border-bottom: 1px solid #404040; }
 .leftMain li ul li ul li:hover { background-color: #555; }
 .leftMain li ul li ul li, .leftMain li ul li ul li a { background: none; }
+

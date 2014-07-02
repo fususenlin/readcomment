@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="common/css/book.css" type="text/css" />
+</head>
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="dismiss()">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only" >Close</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">新增书籍</h4>
+        </div>
+        <div class="modal-body">
+            <form id="book_form" enctype="multipart/form-data" role="form" class="form-horizontal" method="post" action="bookUpload">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">书名</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="title" ng-model="title" class="form-control" placeholder="书名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">作者</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="author" ng-model="author" class="form-control" placeholder="作者">
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">图片链接</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="imageUrl" value="http://www.iteye.com/upload/logo/user/413898/3e0d53bb-698b-391d-8399-3ddb93eb1592.jpg" class="form-control" placeholder="作者">
+                        </div>
+                    </div> -->
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">TXT文件</label>
+                    <div class="col-sm-10">
+                        <input name="txt" id="book_file" type="file" onchange="angular.element(this).scope().fileChange(this)" class="file">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-default" ng-click="dismiss()">算了</button> -->
+            <button type="submit" class="btn btn-primary" ng-click="upload()">提交</button>
+        </div>
+        <div id="model1">
+        d2wdwqd
+        </div>
+    </div>
+</body>

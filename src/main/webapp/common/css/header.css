@@ -1,0 +1,49 @@
+.header {
+	height: 40px;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: url(../../asserts/images/texture.png) 0 0 repeat-x;
+	z-index: 555;
+}
+
+.header-ctrls {
+	height: 100%;
+	line-height: 40px;
+	position: relative;
+	padding-right: 20px;
+	float: right;
+}
+
+.header-ctrls span {
+	border: thin solid #777;
+	border-radius: 45px;
+	font-size: 16px;
+	margin-right: 15px;
+	color: #777;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.header-ctrls span:hover {
+	color: #d32;
+}
+
+.header-title {
+	height: 100%;
+	line-height: 100%;
+	float: left;
+}
+
+.header .logo {
+	font-size: x-large;
+	font-family: "微软雅黑";
+	color: #333 !important;
+	height: 100%;
+	line-height: 40px;
+	padding-left: 16px;
+}

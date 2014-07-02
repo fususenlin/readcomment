@@ -4,7 +4,9 @@
 </head>
 <body>
     <div class="header">
-        <div class="header-title text-left"></div>
+        <div class="header-title text-left">
+            <a href="index.html" title="" class="logo"> 品阅中文网 </a>
+        </div>
         <div class="header-ctrls text-right">
             <span class="fa fa-bookmark-o" ng-click="bookmark()" ng-hide="isMarked"></span>
             <span class="fa fa-bookmark" ng-click="bookmark()" ng-show="isMarked"></span>
@@ -14,49 +16,41 @@
             <!-- <span class="fa fa-share-alt"></span> -->
         </div>
     </div>
-    <div class="container">
-        <div class="row clearfix">
-            <div class=" col-md-12 column">
-                <div class="row clearfix">
-                    <div class="column" ng-class="{'col-md-7':comment,'col-md-12':!comment}">
-                        <div class="content">
-                             <p ng-repeat="content in contents track by $index" ng-click="duoshuo($index)" ng-if="content.content" ng-init="content.duoshuo=true">
-                                <span ng-bind="content.content"></span>
-                            </p>
-                        </div>
-                       
-                        <ul class="pager">
-                            <li>
-                                <a ng-click="last()">&larr; 上一页</a>
-                            </li>
-                            <li>
-                                <a ng-click="next()">下一页 &rarr;</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-5 column" ng-show="comment">
-                        
-                        <div class="thumbnail" ng-show="current">
-                            <div class="caption">
-                                <blockquote>
-                                    <p ng-bind="current"></p>
-                                </blockquote>
-                            </div>
-                        </div>
-                        
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <!-- 多说评论框 start -->
-                                <div id="duoshuo"></div>
-                                <!-- 多说评论框 end -->
-                            </div>
-                        </div>
 
-                    </div>
+    <div class="column" ng-class="{'col-md-7':comment,'col-md-12':!comment}">
+        <div class="content">
+            <p ng-repeat="content in contents track by $index" ng-click="duoshuo($index)" ng-if="content.content" ng-init="content.duoshuo=true">
+                <span ng-bind="content.content"></span>
+            </p>
+        </div>
 
-                </div>
+        <ul class="pager">
+            <li>
+                <a ng-click="last()">&larr; 上一页</a>
+            </li>
+            <li>
+                <a ng-click="next()">下一页 &rarr;</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-5 column" ng-show="comment">
+
+        <div class="thumbnail" ng-show="current">
+            <div class="caption">
+                <blockquote>
+                    <p ng-bind="current"></p>
+                </blockquote>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <!-- 多说评论框 start -->
+                <div id="duoshuo"></div>
+                <!-- 多说评论框 end -->
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

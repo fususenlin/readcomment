@@ -1,4 +1,4 @@
-package modules.loadBook;
+package modules.bookUpload;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,17 +12,15 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
-import com.mongodb.gridfs.GridFS;
-import com.mongodb.gridfs.GridFSDBFile;
-import com.mongodb.gridfs.GridFSInputFile;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoadBookAction extends ActionSupport {
+public class BookUploadAction extends ActionSupport {
 
 	private File txt; // 文件域
 	private String imageUrl; // 文件域
 	private String author; // 文件类型
 	private String title; // 文件名
+	private String bookId;
 
 	@Override
 	public String execute() throws IOException {
@@ -49,36 +47,29 @@ public class LoadBookAction extends ActionSupport {
 		book.put("imageUrl", this.getImageUrl());
 		books.insert(book);
 		
-		String bookId = book.get("_id").toString();
+		bookId = book.get("_id").toString();
 		
 		/**
 		 * 保存文件到GFS
 		 */
-		try {
-			// 存储fs的根节点
-			GridFS gridFS = new GridFS(db, "books");
-			GridFSInputFile gfsTxt = gridFS.createFile(this.getTxt());
-			gfsTxt.put("aliases", "rc.books");
-			gfsTxt.put("filename", bookId + "_txt");
-			gfsTxt.put("contentType", "txt");
-			gfsTxt.save();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("存储文件时发生错误！！！");
-		}
-
-		GridFS gridFS = new GridFS(db, "books");
-		GridFSDBFile dbfile = gridFS.findOne(bookId + "_txt");
-		dbfile.getInputStream();
-		if (dbfile != null) {
-			// dbfile
-		}
+		/*
+		 * try { // 存储fs的根节点 GridFS gridFS = new GridFS(db, "books");
+		 * GridFSInputFile gfsTxt = gridFS.createFile(this.getTxt());
+		 * gfsTxt.put("aliases", "rc.books"); gfsTxt.put("filename", book +
+		 * "_txt"); gfsTxt.put("contentType", "txt"); gfsTxt.save(); } catch
+		 * (Exception e) { e.printStackTrace();
+		 * System.out.println("存储文件时发生错误！！！"); }
+		 * 
+		 * GridFS gridFS = new GridFS(db, "books"); GridFSDBFile dbfile =
+		 * gridFS.findOne(bookId + "_txt"); dbfile.getInputStream(); if (dbfile
+		 * != null) { // dbfile }
+		 */
 
 		/**
 		 * 将段落诗句存入contents表
 		 */
 		DBCollection contents = db.getCollection("contents");
-		InputStreamReader inr = new InputStreamReader(fis, "UTF-8");
+		InputStreamReader inr = new InputStreamReader(fis, "GB2312");
 		BufferedReader br = new BufferedReader(inr);
 		String str = new String();
 		while ((str = br.readLine()) != null) {
@@ -144,6 +135,14 @@ public class LoadBookAction extends ActionSupport {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public String getBookId() {
+		return bookId;
+	}
+
+	public void setBookId(String bookId) {
+		this.bookId = bookId;
 	}
 
 }

@@ -7,7 +7,7 @@ var ReadCtrl = function($scope, $rootScope, $location, $http) {
 	$rootScope.title = search.title;
 
 	$scope.start = search.start || 0;
-	$scope.limit = search.limit || 10;
+	$scope.limit = search.limit || 500;
 
 	$scope.duoshuo = function($index) {
 		$scope.current = $scope.contents[$index].content;

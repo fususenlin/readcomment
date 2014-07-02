@@ -6,7 +6,7 @@ angular.load({
 	/* 导入的依赖模块 */
 	import : [ 'ngRoute','angularFileUpload', 'ui.bootstrap'],
 	/* 依赖的子模块 ，如果没有预定义,会自动生成模块 和路由 */
-	dependences : [ 'books', 'read', 'login', 'register','upload','uploadbook' ]
+	dependences : [ 'books', 'read', 'login', 'register','upload' ]
 
 }).run(function($rootScope, $location) {
 	console.log("dwqdwqd");

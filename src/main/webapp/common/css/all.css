@@ -4,7 +4,7 @@ html {
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	background: url(../../asserts/images/backgrounds/body.jpg);
+	
 	font-size: 15px;
 	line-height: 22px;
 	color: #5f5f5f;
@@ -29,14 +29,6 @@ strong { font-weight: 700; }
 	margin: 0 30px;
 }
 
-.logo {
-	float: left;
-	margin-top: 10px;
-	font-weight: bolder;
-    font-size: x-large;
-    font-family: "微软雅黑";
-    color: #ECECEC!important;
-}
 
 .topNav {
 	float: right;
