@@ -1,4 +1,4 @@
-var ReadCtrl = function($scope, $rootScope, $location, $http) {
+var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http) {
 	
 	$scope.isMarked = false;
 	$scope.comment = true;
@@ -8,11 +8,43 @@ var ReadCtrl = function($scope, $rootScope, $location, $http) {
 
 	$scope.start = search.start || 0;
 	$scope.limit = search.limit || 500;
-
+	
+	$scope.is_duoshuo_ok = false;
+	
+	
+	In('duoshuo', function() {
+		In('duoshuo_embed', function() {
+			var duoshuoload = setInterval(function() {
+				if(DUOSHUO) {
+					$scope.is_duoshuo_ok = true;
+					apply($scope);
+					clearInterval(duoshuoload);
+				}
+			}, 10);
+		});
+	});
+	
+	$rootScope.currentContent = function() {
+		return {
+			index : $scope.$index,
+			content: $scope.contents[$scope.$index].content,
+			book   : $scope.book,
+			start  : $scope.start,
+			limit  : $scope.limit,
+			duoshuokey: $scope.book + "_" + $scope.start + $scope.$index
+		};
+	};
+	
 	$scope.duoshuo = function($index) {
-		$scope.current = $scope.contents[$index].content;
-		toggleDuoshuoComments("duoshuo", $scope.book + "_" + $scope.start
-				+ $index);
+		if(!$scope.is_duoshuo_ok) {
+			console.log("多说还没有准备好");
+			return;
+		}
+		$scope.$index = $index;
+		$modal.open({
+			templateUrl : 'ng_modules/read/comment.html',
+			controller : 'CommentCtrl'
+		});
 	};
 
 	$scope.last = function(){
@@ -26,6 +58,14 @@ var ReadCtrl = function($scope, $rootScope, $location, $http) {
 	$scope.next = function(){
 		$scope.start = $scope.start + $scope.limit;
 		$scope.request();
+	};
+	
+	$scope.scroll = function(element){
+		
+	};
+	
+	$scope.scrollInit= function(){
+		document.querySelector(".content").scrollTop = 0;
 	};
 	
 	$scope.remove_bookmark = function(mark) {
@@ -92,14 +132,9 @@ var ReadCtrl = function($scope, $rootScope, $location, $http) {
 				return;
 			}
 			$scope.bookmarkInit();
+			$scope.scrollInit();
 			$scope.current = $scope.contents[0].content;
-			In('duoshuo', function() {
-				In('duoshuo_embed', function() {
-					setTimeout(function() {
-						$scope.duoshuo(0);
-					}, 100);
-				});
-			});
+			
 		}).error(function(data, status, headers, config) {
 			alert("error");
 		});
@@ -107,4 +142,18 @@ var ReadCtrl = function($scope, $rootScope, $location, $http) {
 	$scope.bookmarkInit();
 	$scope.request();
 
+};
+
+var CommentCtrl = function($scope, $rootScope, $location, $timeout, $modalInstance) {
+	
+	$scope.comment_loaded = false;
+	$scope.dismiss = function() {
+		$modalInstance.close();
+	};
+	
+	$scope.currentContent = $rootScope.currentContent();
+	$timeout(function(){
+		duoshuo_box("duoshuo", $scope.currentContent.duoshuokey);
+	},500);
+	
 };

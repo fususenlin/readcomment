@@ -1,5 +1,16 @@
 var BooksCtrl = function($scope, $rootScope, $modal, $http) {
 	
+	$scope.del_book = function($index){
+		$http({
+			url : "removeBook",
+			data : {book:$scope.books.$index}
+		}).success(function(data, status, headers, config) {
+			alert("从书架中移除成功!");
+		}).error(function(data, status, headers, config) {
+			alert("error");
+		});
+	};
+	
 	$rootScope.refreshBooks = function() {
 		$http({
 			url : "books",
@@ -13,7 +24,7 @@ var BooksCtrl = function($scope, $rootScope, $modal, $http) {
 	
 	$scope.bookUpload = function() {
 		$modal.open({
-			templateUrl : 'ng_modules/books/bookUpload.html',
+			templateUrl : 'ng_modules/books/upload.html',
 			controller : 'BookUploadCtrl'
 		});
 	};
@@ -22,7 +33,7 @@ var BooksCtrl = function($scope, $rootScope, $modal, $http) {
 
 };
 
-var BookUploadCtrl = function($scope, $rootScope, $modalInstance) {
+var BookUploadCtrl = function($scope, $rootScope, $http, $modalInstance) {
 	
 	$scope.fileChange = function(file) {
 		var fileObject = file.files[0];
@@ -32,20 +43,25 @@ var BookUploadCtrl = function($scope, $rootScope, $modalInstance) {
 		}
 		$scope.suffix = fileObject.name.split(".")[1];
 		if("txt" != $scope.suffix ) {
-			alert("对不起,现在只支持Txt文件导入哦~");
+			alert("现在只支持导入txt文件~");
 		}
 	};
 	
 	$scope.upload = function() {
+		if(!$scope.title){
+			alert("请提供Txt文件");
+			return;
+		}
 		$('#book_form').ajaxSubmit(function(mydata) {
 			if(mydata.error) {
 				alert(error);
 			}
-			$(".alert").alert();
 			$rootScope.refreshBooks();
 			$scope.dismiss();
 		});
 	};
+	
+	
 	
 	$scope.dismiss = function() {
 		$modalInstance.close();
@@ -59,13 +75,6 @@ var BookUploadCtrl = function($scope, $rootScope, $modalInstance) {
 			removeLabel : "移除",
 			showUpload : false,
 			previewFileType : "image"
-		});
-
-		$(".btn-warning").on('click', function() {
-			$("#file-4").attr('disabled', 'disabled');
-			$('#file-4').fileinput('refresh', {
-				browseLabel : 'Kartik'
-			});
 		});
 
 	}, 300);

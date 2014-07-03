@@ -38,7 +38,6 @@ body {
 	scrollbar-3dlight-color: #f0f0f0;
 	scrollbar-arrow-color: #606060;
 	scrollbar-darkshadow-color: #cdcdcd;
-	overflow: hidden;
 }
 
 .container {
@@ -52,35 +51,40 @@ body {
 	word-break: break-all;
 	word-spacing: 2px;
 	word-wrap: break-word;
-	height: 650px;
+	height: 600px;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding: 10px 16px;
+	padding: 0 6px 0 16px;
 }
 
 .content p {
 	margin-bottom: 1.5em;
 	text-indent: 2em;
 	margin: 0 0 10px;
-	position: relative
+	position: relative;
+	cursor: pointer;
 }
+
 .content p:hover {
-    background: #ECECEC;
+	background: #ECECEC;
 }
 
 .content p:hover::after {
 	bottom: 0;
-    content: "";
-    height: 100%;
-    width: 2px;
-    background: #E2227E;
-    position: absolute;
-    left: -16px;
-    border-top-right-radius: 200px;
-    border-bottom-right-radius: 200px;
-    -webkit-box-shadow: 0 0px 18px 2px rgba(0,0,0,0.35), inset 0 9px 0 rgba(255,255,255,0.16);
-    -moz-box-shadow: 0 0px 18px 2px rgba(0,0,0,0.35), inset 0 9px 0 rgba(255,255,255,0.16);
-    box-shadow: 0 0px 18px 2px rgba(0,0,0,0.35), inset 0 9px 0 rgba(255,255,255,0.16);
+	content: "";
+	height: 100%;
+	width: 2px;
+	background: #E2227E;
+	position: absolute;
+	left: -16px;
+	border-top-right-radius: 200px;
+	border-bottom-right-radius: 200px;
+	-webkit-box-shadow: 0 0px 18px 2px rgba(0, 0, 0, 0.35), inset 0 9px 0
+		rgba(255, 255, 255, 0.16);
+	-moz-box-shadow: 0 0px 18px 2px rgba(0, 0, 0, 0.35), inset 0 9px 0
+		rgba(255, 255, 255, 0.16);
+	box-shadow: 0 0px 18px 2px rgba(0, 0, 0, 0.35), inset 0 9px 0
+		rgba(255, 255, 255, 0.16);
 }
 
 .content .has-comment {
@@ -93,8 +97,9 @@ body {
 	text-indent: 2em;
 	margin: 0 0 10px;
 }
+
 .header-ctrls .fa-bookmark,.header-ctrls .fa-comments {
-    color: #d32;
+	color: #d32;
 }
 
 body,input,button,textarea {
@@ -102,13 +107,40 @@ body,input,button,textarea {
 		sans-serif;
 }
 
-.thumbnail .caption p {
+.modal-title {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 
 .ds-comments {
-	height: 270px;
+	height: 250px;
 	overflow-y: auto !important;
+}
+
+.comment-box {
+	color: #E2227E;
+}
+
+.container .row .row {
+	border: thin solid #ccc;
+	border-radius: 12px;
+	overflow: hidden;
+	padding-top: 10px;
+}
+
+blockquote {
+	margin: 0 0 5px;
+}
+
+.modal-header .close {
+	margin-top: -6px;
+	width: 35px;
+	height: 35px;
+	border: thin solid #ccc;
+	border-radius: 45px;
+}
+
+.modal-header .close:hover {
+    background: #F2F2F2;
 }

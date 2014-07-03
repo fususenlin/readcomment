@@ -10,15 +10,15 @@
         <div class="header-ctrls text-right">
             <span class="fa fa-bookmark-o" ng-click="bookmark()" ng-hide="isMarked"></span>
             <span class="fa fa-bookmark" ng-click="bookmark()" ng-show="isMarked"></span>
-            <span class="fa fa-comments-o" ng-show="comment" ng-click="comment=false"></span>
-            <span class="fa fa-comments" ng-hide="comment" ng-click="comment=true"></span>
+            <span class="fa fa-comments-o" ng-hide="is_duoshuo_ok"></span>
+            <span class="fa fa-comments" ng-show="is_duoshuo_ok"></span>
             <!-- <span class="fa fa-heart"></span> -->
             <!-- <span class="fa fa-share-alt"></span> -->
         </div>
     </div>
 
-    <div class="column" ng-class="{'col-md-7':comment,'col-md-12':!comment}">
-        <div class="content">
+    <div class="column col-md-12">
+        <div class="content" onscroll="angular.element(this).scope().scroll(this)">
             <p ng-repeat="content in contents track by $index" ng-click="duoshuo($index)" ng-if="content.content" ng-init="content.duoshuo=true">
                 <span ng-bind="content.content"></span>
             </p>
@@ -33,24 +33,6 @@
             </li>
         </ul>
     </div>
-    <div class="col-md-5 column" ng-show="comment">
-
-        <div class="thumbnail" ng-show="current">
-            <div class="caption">
-                <blockquote>
-                    <p ng-bind="current"></p>
-                </blockquote>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <!-- 多说评论框 start -->
-                <div id="duoshuo"></div>
-                <!-- 多说评论框 end -->
-            </div>
-        </div>
-
-    </div>
+   
 </body>
 </html>

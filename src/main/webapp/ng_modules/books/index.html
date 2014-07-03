@@ -7,8 +7,12 @@
 <body>
     <div class="header">
         <div class="header-title text-left">
-            <a href="index.html" title="" class="logo"> 品阅中文网 </a>
+            <a href="index.html" title="" class="logo">我的书架 </a>
         </div>
+         <div class="header-ctrls text-right">
+            <div class="ds-login"></div>
+         </div>
+        
         <div class="header-ctrls text-right">
             <a ng-click="bookUpload()">
                 <span class="fa fa-plus" data-toggle="tooltip" data-placement="bottom" title="新增书籍"> </span>
@@ -32,6 +36,7 @@
                     <p ng-bind="book.note"></p>
                 </blockquote>
                 <p class="text-right">
+                    <span class="btn btn-default" role="button" ng-click="del_book($index)">移除</span>
                     <a href="#/read?book={{book.id}}&title={{book.title}}" class="btn btn-primary" role="button">阅读</a>
                 </p>
             </div>
