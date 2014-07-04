@@ -4,7 +4,7 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 	$scope.comment = true;
 	var search  = $location.search();
 	$scope.book = search.book;
-	$rootScope.title = search.title;
+	$rootScope.header = search.title;
 
 	$scope.start = search.start || 0;
 	$scope.limit = search.limit || 500;
@@ -147,6 +147,7 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 var CommentCtrl = function($scope, $rootScope, $location, $timeout, $modalInstance) {
 	
 	$scope.comment_loaded = false;
+	
 	$scope.dismiss = function() {
 		$modalInstance.close();
 	};

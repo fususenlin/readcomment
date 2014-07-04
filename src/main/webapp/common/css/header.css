@@ -16,7 +16,7 @@
 	float: right;
 }
 
-.header-ctrls span {
+.header-ctrls .fa {
 	border: thin solid #777;
 	border-radius: 45px;
 	font-size: 16px;
