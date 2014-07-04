@@ -27,12 +27,17 @@
 	text-align: center;
 	line-height: 24px;
 	cursor: pointer;
+	position:relative;
 }
 
 .header-ctrls span:hover {
 	color: #d32;
 }
-
+.header-ctrls .read_circle {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
 .header-title {
 	height: 100%;
 	line-height: 100%;

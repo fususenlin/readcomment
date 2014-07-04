@@ -141,6 +141,28 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 	};
 	$scope.bookmarkInit();
 	$scope.request();
+	
+	$scope.setProgress = function(percent){
+		var i;
+		var j;
+		if(percent <= 0.5) {
+			i  = 180+360*percent;
+			j  = 180;
+		}else {
+			i  = 360;
+			j  = 360*percent;
+		}
+		
+		$(".pie1").css("-o-transform","rotate(" + i + "deg)");
+		$(".pie1").css("-moz-transform","rotate(" + i + "deg)");
+		$(".pie1").css("-webkit-transform","rotate(" + i + "deg)");
+		$(".pie2").css("-o-transform","rotate(" + j + "deg)");
+		$(".pie2").css("-moz-transform","rotate(" + j + "deg)");
+		$(".pie2").css("-webkit-transform","rotate(" + j + "deg)");
+	};
+	window.setTimeout(function(){
+		$scope.setProgress(0.35);
+	},200);
 
 };
 
