@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="developer">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8" />
+
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
 <title ng-bind="header||'品阅中文网'"></title>
 
 <link href="favicon.ico" type="image/x-icon" rel=icon />
 <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
 
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="common/css/all.css" type="text/css">
 <link rel="stylesheet" href="common/css/index.css" type="text/css" />
@@ -15,13 +20,17 @@
 
 <link href="bower_components/bootstrap-fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
 <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+
 <script type="text/javascript" src="bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
 
 <script type="text/javascript" src="vendor/angular/angular-frame.js"></script>
@@ -45,6 +54,97 @@
 
 </head>
 <body>
+    <!-- 开始部分 -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand hidden-sm" ng-href="#">品阅中文网</a>
+            </div>
+            <div class="navbar-collapse collapse" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a ng-href="#">
+                            <i class="fa fa-home fa-fw"></i>首页
+                        </a>
+                    </li>
+
+                    <li>
+                         <a ng-href="#/books">
+                            <i class="fa fa-search fa-fw"></i>检索
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-href="#/books">
+                            <i class="fa fa-inbox fa-fw"></i>我的书架
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-href="#/books">
+                            <i class="fa fa-bookmark fa-fw"></i>我的书签
+                        </a>
+                    </li>
+                    
+                    <!-- <li class="dropdown" data-toggle="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle">
+                            Bootstrap2中文文档
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <a href="http://v2.bootcss.com/getting-started.html" target="_blank">起步</a>
+                            </li>
+                            <li class="">
+                                <a href="http://v2.bootcss.com/scaffolding.html" target="_blank">脚手架</a>
+                            </li>
+                            <li class="">
+                                <a href="http://v2.bootcss.com/base-css.html" target="_blank">基本CSS样式</a>
+                            </li>
+                            <li class="">
+                                <a href="http://v2.bootcss.com/components.html" target="_blank">组件</a>
+                            </li>
+                            <li class="">
+                                <a href="http://v2.bootcss.com/javascript.html" target="_blank">JavaScript插件</a>
+                            </li>
+                            <li class="">
+                                <a href="http://v2.bootcss.com/customize.html" target="_blank">定制</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" data-toggle="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle">
+                            Bootstrap3中文文档
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://v3.bootcss.com/getting-started/" target="_blank">起步</a>
+                            </li>
+                            <li>
+                                <a href="http://v3.bootcss.com/css/" target="_blank">CSS</a>
+                            </li>
+                            <li>
+                                <a href="http://v3.bootcss.com/components/" target="_blank">组件</a>
+                            </li>
+                            <li>
+                                <a href="http://v3.bootcss.com/javascript/" target="_blank">JavaScript插件</a>
+                            </li>
+                            <li>
+                                <a href="http://v3.bootcss.com/customize/" target="_blank">定制</a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <li>
+                        <a ng-href="#/connect">
+                            <i class="fa fa-phone fa-fw"></i>联系我们
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <!-- ----------中间部分-------------- -->
     <div class="container">
         <div class="row clearfix">
@@ -58,14 +158,14 @@
     <!-- ----------底部部分-------------- -->
     <!-- <div class="bottom">
         <div class="copyright">
-            <h6>Copyright 2000 - 2014 @李茂盛</h6>
+            <h6>Copyright 2000 - 2014 @环形矩阵工作室</h6>
         </div>
         <div class="ICP">
             <h6>没有备案</h6>
         </div>
     </div> -->
     <!-- ----------底部结束-------------- -->
-    
+
     <script type="text/javascript" src="vendor/duoshuo/duoshuo.js"></script>
 </body>
 </html>

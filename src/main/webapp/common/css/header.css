@@ -1,43 +1,74 @@
 .header {
-	height: 40px;
-	width: 100%;
 	position: fixed;
-	left: 0;
 	top: 0;
-	background: url(../../asserts/images/texture.png) 0 0 repeat-x;
-	z-index: 555;
+	right: 26px;
+	z-index: 1030;
+	height: 50px
+}
+
+.navbar-default .navbar-toggle {
+	padding: 8px 8px;
+	margin-top: 5px;
+	margin-right: 0px;
+	border-color: #777;
+	width: 36px;
+	height: 36px;
+	border-radius: 45px;
+}
+
+.navbar-default .navbar-toggle i{
+	font-size:16px;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	border-radius: 45px;
+}
+.navbar-default {
+	width: 100%;
+	background: url(../../asserts/images/texture.png);
+}
+
+.navbar-collapse.collapsing,.navbar-collapse.in {
+	background: url(../../asserts/images/backgrounds/body.jpg);
+}
+
+.navbar-default .navbar-nav>li>a,.navbar-default .navbar-nav .open .dropdown-menu>li>a
+	{
+	height: 50px;
 }
 
 .header-ctrls {
 	height: 100%;
-	line-height: 40px;
+	line-height: 50px;
 	position: relative;
 	padding-right: 20px;
 	float: right;
 }
 
 .header-ctrls .fa {
-	border: thin solid #777;
+	border: thin solid #d1d1d1;
 	border-radius: 45px;
 	font-size: 16px;
 	margin-right: 15px;
 	color: #777;
-	width: 24px;
-	height: 24px;
+	width: 36px;
+	height: 36px;
 	text-align: center;
-	line-height: 24px;
+	line-height: 36px;
 	cursor: pointer;
-	position:relative;
+	position: relative;
+	box-shadow: 0px 0px 9px #A6A6A6;
 }
 
 .header-ctrls span:hover {
 	color: #d32;
 }
+
 .header-ctrls .read_circle {
 	position: absolute;
 	left: 0;
 	top: 0;
 }
+
 .header-title {
 	height: 100%;
 	line-height: 100%;
@@ -49,7 +80,7 @@
 	font-family: "微软雅黑";
 	color: #333 !important;
 	height: 100%;
-	line-height: 40px;
+	line-height: 50px;
 	padding-left: 16px;
 	text-decoration: blink;
 }

@@ -7,7 +7,7 @@ var ShopCtrl = function($scope, $rootScope, $modal, $http) {
 		}).success(function(data, status, headers, config) {
 			$scope.books = data.books;
 		}).error(function(data, status, headers, config) {
-			alert("error");
+			//alert("error");
 		});
 	};
 	

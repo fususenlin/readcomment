@@ -127,6 +127,7 @@ body,input,button,textarea {
 	border-radius: 12px;
 	overflow: hidden;
 	padding-top: 10px;
+	position: relative;
 }
 
 blockquote {

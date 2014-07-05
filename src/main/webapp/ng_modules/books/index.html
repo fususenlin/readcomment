@@ -6,17 +6,15 @@
 </head>
 <body>
     <div class="header">
-        <div class="header-title text-left">
+       <!--  <div class="header-title text-left">
             <a href="index.html" title="" class="logo">我的书架 </a>
-        </div>
-         <div class="header-ctrls text-right">
+        </div> -->
+<!--          <div class="header-ctrls text-right">
             <div class="ds-login"></div>
          </div>
-        
+         -->
         <div class="header-ctrls text-right">
-            <a ng-click="bookUpload()">
-                <span class="fa fa-plus" data-toggle="tooltip" data-placement="bottom" title="新增书籍"> </span>
-            </a>
+           <span ng-click="bookUpload()" class="fa fa-plus" data-toggle="tooltip" data-placement="bottom" title="新增书籍"> </span>
         </div>
     </div>
     <div class="col-sm-12 col-md-12" ng-show="books.length==0">

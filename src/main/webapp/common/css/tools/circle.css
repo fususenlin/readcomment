@@ -1,13 +1,13 @@
 .pie {
-	width: 24px;
-	height: 24px;
+	width: 36px;
+	height: 36px;
 	background-color: blue;
 	border-radius: 100px;
 	position: absolute;
 }
 
 .pie1 {
-	clip: rect(0px, 24px, 24px, 12px);
+	clip: rect(0px, 36px, 36px, 18px);
 	-o-transform: rotate(0deg);
 	-moz-transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);
@@ -17,7 +17,7 @@
 }
 
 .pie2 {
-	clip: rect(0px, 12px, 24px, 0px);
+	clip: rect(0px, 18px, 36px, 0px);
 	-o-transform: rotate(0deg);
 	-moz-transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);
@@ -27,52 +27,39 @@
 }
 
 .hold {
-	width: 24px;
-	height: 24px;
+	width: 36px;
+	height: 36px;
 	position: absolute;
 	z-index: 1;
 }
 
 .hold1 {
-	clip: rect(0px, 24px, 24px, 12px);
+	clip: rect(0px, 36px, 36px, 18px);
 }
 
 .hold2 {
-	clip: rect(0px, 12px, 24px, 0px);
+	clip: rect(0px, 18px, 36px, 0px);
 }
 
 .bg {
-	width: 24px;
-	height: 24px;
+	width: 32px;
+	height: 32px;
 	border-radius: 100px;
 	position: absolute;
-	box-shadow: 0px 0px 8px #333;
+	box-shadow: 0px 0px 8px #DDDDDD;
 	background: -moz-radial-gradient(0% 50% 0deg, #900, #ff0000);
-	background: transparent;
+	background: rgb(228, 228, 228);
+	z-index: 1;
+	top: 2px;
+	left: 2px;
+	line-height: 34px;
+	text-align: center;
 }
 
-.time {
-	width: 20px;
-height: 20px;
-margin: 2px 0 0 2px;
-background-color: white;
-border-radius: 45px;
-position: absolute;
-z-index: 1;
-box-shadow: 0px 0px 1px #333 inset;
-text-align: center;
-line-height: 20px;
-font-family: "Book Antiqua", Palatino, serif;
-font-weight: bold;
-text-shadow: 1px 1px 3px #333;
-}
-
-.time em {
-	background: #fff;
+.header-left {
 	position: absolute;
-	top: 62px;
-	left: 12px;
-	height: 18px;
-	width: 140px;
-	opacity: 0.4;
+	width: 36px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
 }

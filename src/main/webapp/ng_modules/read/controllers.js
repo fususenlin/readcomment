@@ -136,7 +136,7 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 			$scope.current = $scope.contents[0].content;
 			
 		}).error(function(data, status, headers, config) {
-			alert("error");
+			//alert("error");
 		});
 	};
 	$scope.bookmarkInit();
@@ -161,7 +161,7 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 		$(".pie2").css("-webkit-transform","rotate(" + j + "deg)");
 	};
 	window.setTimeout(function(){
-		$scope.setProgress(0.35);
+		$scope.setProgress(0.75);
 	},200);
 
 };
