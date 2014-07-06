@@ -2,15 +2,24 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 	
 	$scope.isMarked = false;
 	$scope.comment = true;
-	var search  = $location.search();
-	$scope.book = search.book;
-	$rootScope.header = search.title;
-
-	$scope.start = search.start || 0;
-	$scope.limit = search.limit || 500;
+	
+	var clientHeight  = document.body.clientHeight;
+	$("body>.container .content").css("max-height",(clientHeight-150) + "px");
+	setInterval(function(){
+		if(clientHeight != document.body.clientHeight) {
+			clientHeight = document.body.clientHeight;
+			$("body>.container .content").css("max-height",(clientHeight-150) + "px");
+		}
+	},2000);
+	
+	$scope.location_init = function() {
+		var search  = $location.search();
+		$scope.book = search.book||"";
+		$scope.count = parseInt(search.count) || 0;
+		$rootScope.header = search.title;
+	};
 	
 	$scope.is_duoshuo_ok = false;
-	
 	
 	In('duoshuo', function() {
 		In('duoshuo_embed', function() {
@@ -116,33 +125,8 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 		});
 	};
 	
-	$scope.request = function(){
-		$http({
-			url : "contents",
-			params : {
-				book : $scope.book,
-				start : $scope.start,
-				limit : $scope.limit
-			},
-			method : "POST"
-		}).success(function(data, status, headers, config) {
-			$scope.contents = data.contents;
-			if($scope.contents.length == 0) {
-				$scope.last();
-				return;
-			}
-			$scope.bookmarkInit();
-			$scope.scrollInit();
-			$scope.current = $scope.contents[0].content;
-			
-		}).error(function(data, status, headers, config) {
-			//alert("error");
-		});
-	};
-	$scope.bookmarkInit();
-	$scope.request();
-	
-	$scope.setProgress = function(percent){
+	$scope.drawProgress = function(percent){
+		percent = percent/100;
 		var i;
 		var j;
 		if(percent <= 0.5) {
@@ -160,9 +144,71 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 		$(".pie2").css("-moz-transform","rotate(" + j + "deg)");
 		$(".pie2").css("-webkit-transform","rotate(" + j + "deg)");
 	};
-	window.setTimeout(function(){
-		$scope.setProgress(0.75);
-	},200);
+	
+	$scope.request = function(){
+		$http({
+			url : "contents",
+			params : {
+				book : $scope.book,
+				start : $scope.start,
+				limit : $scope.limit
+			},
+			method : "POST"
+		}).success(function(data, status, headers, config) {
+			$scope.contents = data.contents;
+			if($scope.contents.length == 0) {
+				$scope.last();
+				return;
+			}
+			$scope.bookmarkInit();
+			$scope.scrollInit();
+			$scope.progressInit();
+			$scope.local_books_set();
+			$scope.current = $scope.contents[0].content;
+		}).error(function(data, status, headers, config) {
+			//alert("error");
+		});
+	};
+	
+	$scope.local_books_set = function() {
+		var local_book = "book_"+$scope.book;
+		var data = localData.get(local_book)||{};
+		data= {
+				start:$scope.start,
+				limit:$scope.limit
+		};
+		localData.set(local_book,data);
+	};
+	
+	$scope.local_book_init = function() {
+		var local_book = "book_"+$scope.book;
+		var data = localData.get(local_book)||{};
+		$scope.start = data.start;
+		$scope.limit = data.limit;
+	};
+	
+	$scope.progressInit = function(){
+		$scope.progress = parseInt(($scope.start+$scope.limit)/$scope.count*100);
+		if($scope.progress > 100) {
+			$scope.progress = 100;
+		}
+		$scope.drawProgress($scope.progress);
+	};
+	
+	/**
+	 * 开始
+	 */
+	
+	$scope.location_init();
+	$scope.local_book_init();
+	
+	
+	$scope.start = parseInt($scope.start) || 0;
+	$scope.limit = parseInt($scope.limit) || 100;
+	
+	
+	$scope.bookmarkInit();
+	$scope.request();
 
 };
 

@@ -69,9 +69,10 @@ public class BookUploadAction extends ActionSupport {
 		 * 将段落诗句存入contents表
 		 */
 		DBCollection contents = db.getCollection("contents");
-		InputStreamReader inr = new InputStreamReader(fis, "GB2312");
+		InputStreamReader inr = new InputStreamReader(fis, "UTF-8");//GB2312
 		BufferedReader br = new BufferedReader(inr);
 		String str = new String();
+		int count = 0;
 		while ((str = br.readLine()) != null) {
 			if ("".equals(str)) {
 				continue;
@@ -82,9 +83,12 @@ public class BookUploadAction extends ActionSupport {
 			content.put("content", str);
 			contents.insert(content);
 			System.out.println();
+			count++;
 		}
 		br.close();
-
+		book.put("count", count);
+		books.save(book);
+		
 		// 创建要查询的document
         BasicDBObject searchQuery = new BasicDBObject();
 		searchQuery.put("book", bookId);

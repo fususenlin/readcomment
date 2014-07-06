@@ -1,6 +1,6 @@
 <html>
 <head>
-<link href="common/css/read.css" rel="stylesheet" type="text/css" />
+<link href="common/css/read.css?v=0.0.1" rel="stylesheet" type="text/css" />
 <link href="common/css/tools/circle.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -14,7 +14,7 @@
                     <div class="hold hold2">
                         <div class="pie pie2"></div>
                     </div>
-                    <div class="bg">36</div>
+                    <div class="bg" ng-bind="progress"></div>
                     
                 </div>
             </span>
@@ -27,13 +27,13 @@
         </div>
     </div>
 
-    <div class="column col-md-12">
-        <ul class="pager">
-            <li>
-                <a ng-click="last()">&larr; 上一页</a>
+    <div class="column col-md-12 content_box">
+        <ul class="pager circle_pager">
+            <li class="last">
+                <a class="fa fa-angle-left" ng-click="last()"></a>
             </li>
-            <li>
-                <a ng-click="next()">下一页 &rarr;</a>
+            <li class="next">
+                <a class="fa fa-angle-right" ng-click="next()"></a>
             </li>
         </ul>
         <div class="content" onscroll="angular.element(this).scope().scroll(this)">
@@ -41,14 +41,6 @@
                 <span ng-bind="content.content"></span>
             </p>
         </div>
-        <ul class="pager">
-            <li>
-                <a ng-click="last()">&larr; 上一页</a>
-            </li>
-            <li>
-                <a ng-click="next()">下一页 &rarr;</a>
-            </li>
-        </ul>
     </div>
 </body>
 </html>

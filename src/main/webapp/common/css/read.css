@@ -51,7 +51,7 @@ body {
 	word-break: break-all;
 	word-spacing: 2px;
 	word-wrap: break-word;
-	height: 600px;
+	/* height: 600px; */
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 0 6px 0 16px;
@@ -144,4 +144,42 @@ blockquote {
 
 .modal-header .close:hover {
     background: #F2F2F2;
+}
+
+.content_box {
+	position:relative;
+	padding-bottom: 10px;
+}
+.circle_pager {
+	margin: 5px 0;
+}
+
+.circle_pager li{
+	position: absolute;
+	z-index: 2;
+	top: 45%;
+	background: transparent;
+	/* border-radius: 100px; */
+	background:#ECECEC;
+}
+
+.circle_pager .last {
+	float: left;
+	left: -50px;
+	
+}
+
+.circle_pager .next {
+	float: right;
+	right: -50px;
+}
+
+.circle_pager .last a{
+	padding: 10px 13px 10px 55px;
+}
+.circle_pager li a:hover{
+	color: #d32;
+}
+.circle_pager .next a{
+	padding: 10px 55px 10px 13px;
 }
