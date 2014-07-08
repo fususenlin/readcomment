@@ -7,135 +7,147 @@
  * 
  * 请自行查看实例。本框架具有自动装配功能。如果你的模块不需要定义且是叶子模块，可以不导入相关的app.js定义包，系统会自动定义
  */
-var load = function(path) {
-	return {
-		delay : function($q, $rootScope) {
-			var delay = $q.defer();
-			In.add('mod', {
-				path : path,
-				type : 'js',
-				charset : 'utf-8'
-			});
-			In('mod', function() {
-				safeApply($rootScope, function() {
-					delay.resolve();
+var ng = {
+	load : function(app) {
+		app.dependences = app.dependences || [];
+		app.import = app.import || [];
+
+		if (!!app.parent) {
+			app.name = app.parent + "." + app.name;
+		}
+		console.log("*****************< " + app.name + " >*****************");
+		var app_module = angular.module(app.name, ng._make_modules(app));
+		ng._make_routes(app, app_module);
+		return app_module;
+	},
+	resolve : function(path) {
+		return {
+			delay : [ "$q", "$rootScope", function($q, $rootScope) {
+
+				var delay = $q.defer();
+				In.add('mod', {
+					path : path,
+					type : 'js',
+					charset : 'utf-8'
 				});
+				In('mod', function() {
+					ng.apply($rootScope, function() {
+						delay.resolve();
+					});
 
-			});
-			return delay.promise;
+				});
+				return delay.promise;
+			} ]
+		};
+	},
+
+	apply : function(scope, fn) {
+		scope.$$phase || scope.$apply();
+		(scope.$$phase || scope.$root.$$phase) ? fn() : scope.$apply(fn);
+	},
+
+	_toFirstUpperCase : function(str) {
+		return str[0].toUpperCase() + str.substring(1);
+	},
+
+	_make_modules : function(app) {
+		var moduleList = [];
+		for (var i = 0; i < app.import.length; ++i) {
+			moduleList.push(app.import[i]);
 		}
-	};
-};
-
-function toFirstUpperCase(str) {
-	return str[0].toUpperCase() + str.substring(1);
-}
-
-function make_modules(app) {
-	var moduleList = [];
-	for (var i = 0; i < app.import.length; ++i) {
-		moduleList.push(app.import[i]);
-	}
-	for (var i = 0; i < app.dependences.length; ++i) {
-		var module = app.dependences[i];
-		if (!app.root) {
-			module = app.name + "." + module;
-		}
-
-		moduleList.push(module);
-		try {
-			angular.module(module);
-			console.log("* load success ==> " + module);
-		} catch (e) {
-			console.warn("* auto build   ==> " + module);
-			angular.module(module, []);
-		}
-	}
-	if (app.dependences.length > 0) {
-		console.log("-----------------------------------------");
-	}
-	return moduleList;
-}
-
-function make_ctrl(app, module) {
-	var ctrl = "";
-	var split = app.name.split(".");
-	for (var i = 0; i < split.length; ++i) {
-		ctrl += toFirstUpperCase(split[i]);
-	}
-	if (app.root) {
-		return toFirstUpperCase(module) + 'Ctrl';
-	}
-	return ctrl + toFirstUpperCase(module) + 'Ctrl';
-}
-
-function make_route(app, module) {
-	var name = app.name;
-	if (app.root) {
-		return '/' + module;
-	}
-	return '/' + name.replace(".", "/") + "/" + module;
-}
-function make_uri(app) {
-	app.uri = "./";
-	if (!app.root) {
-		var names = app.name.split(".");
-		for (var i = 0; i < names.length; ++i) {
-			app.uri += "ng_modules/" + names[i] + "/";
-		}
-
-	}
-	return app.uri;
-
-}
-function make_routes(app_module, app) {
-
-	app.uri = make_uri(app);
-	app_module.config([ '$routeProvider', function($routeProvider) {
-
 		for (var i = 0; i < app.dependences.length; ++i) {
-
 			var module = app.dependences[i];
-			var ctrl = make_ctrl(app, module);
-			var route = make_route(app, module);
+			if (!app.root) {
+				module = app.name + "." + module;
+			}
 
-			var templateFolder = app.uri + 'ng_modules/' + module;
-
-			eval("var " + ctrl);
-			if (module) {
-				$routeProvider.when(route, {
-					templateUrl : templateFolder + '/index.html',
-					controller : ctrl,
-					resolve : load(templateFolder + '/controllers.js')
-				});
-
-				console.log("* route : " + route);
-				console.log("* ctrl  : " + ctrl);
-				console.log("* path  : " + templateFolder);
-				console.log("-----------------------------------------");
-
+			moduleList.push(module);
+			try {
+				angular.module(module);
+				console.log("* load success ==> " + module);
+			} catch (e) {
+				console.warn("* auto build   ==> " + module);
+				angular.module(module, []);
 			}
 		}
-	} ]);
+		if (app.dependences.length > 0) {
+			console.log("-----------------------------------------");
+		}
+		return moduleList;
+	},
 
-}
+	_make_ctrl : function(app, module) {
 
-angular.load = function(app) {
+		var clear_ctrl_name = ng._toFirstUpperCase(module) + 'Ctrl';
+		if (app.root) {
+			return clear_ctrl_name;
+		}
 
-	app.dependences = app.dependences || [];
-	app.import = app.import || [];
+		var affix_ctrl_name = "";
+		var split = app.name.split(".");
+		for (var i = 0; i < split.length; ++i) {
+			affix_ctrl_name += ng._toFirstUpperCase(split[i]);
+		}
+		return affix_ctrl_name + clear_ctrl_name;
+	},
 
-	if (!!app.parent) {
-		app.name = app.parent + "." + app.name;
+	
+
+	_make_uri : function(app) {
+		app.uri = "./";
+		if (!app.root) {
+			var names = app.name.split(".");
+			for (var i = 0; i < names.length; ++i) {
+				app.uri += "ng_modules/" + names[i] + "/";
+			}
+
+		}
+		return app.uri;
+	},
+	
+	_make_route_name : function(app, module) {
+		var name = app.name;
+		if (app.root) {
+			return '/' + module;
+		}
+		return '/' + name.replace(".", "/") + "/" + module;
+	},
+	
+	_make_route : function(app, module,$routeProvider) {
+		var ctrl_name = ng._make_ctrl(app, module);
+		var route_name = ng._make_route_name(app, module);
+
+		var template_folder = app.uri + 'ng_modules/' + module;
+
+		eval("var " + ctrl_name);
+
+		if (module) {
+			$routeProvider.when(route_name, {
+				templateUrl : template_folder + '/index.html',
+				controller : ctrl_name,
+				resolve : ng.resolve(template_folder + '/controllers.js')
+			});
+
+			console.log("* route : " + route_name);
+			console.log("* ctrl  : " + ctrl_name);
+			console.log("* path  : " + template_folder);
+			console.log("-----------------------------------------");
+
+		}
+	},
+
+	_make_routes : function(app, app_module) {
+		app.uri = ng._make_uri(app);
+		app_module.config([ '$routeProvider', function($routeProvider) {
+			for (var i = 0; i < app.dependences.length; ++i) {
+				var module = app.dependences[i];
+				ng._make_route(app, module,$routeProvider);
+			}
+		} ]);
 	}
-	console.log("*****************< " + app.name + " >*****************");
-	var app_module = angular.module(app.name, make_modules(app));
-	make_routes(app_module, app);
-	return app_module;
 
 };
 
-function safeApply(scope, fn) {
-	scope.$$phase || scope.$apply();
-	(scope.$$phase || scope.$root.$$phase) ? fn() : scope.$apply(fn);
-}
+angular.load = function(app) {
+	return ng.load(app);
+};
