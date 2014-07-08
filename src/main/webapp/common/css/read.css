@@ -1,51 +1,10 @@
-::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
-	-webkit-border-radius: 8px;
-}
-
-::-webkit-scrollbar-button {
-	width: 0;
-	height: 0;
-	display: none;
-}
-
-::-webkit-scrollbar-corner {
-	background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: rgba(211, 211, 211, 0.5);
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background-color: rgba(211, 211, 211, 0.5);
-}
-
-::-webkit-scrollbar-thumb {
-	background-image: url(../../asserts/images/1.png);
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background-image: url(../../asserts/images/1_hover.png);
-}
-
-body {
-	scrollbar-face-color: #cdcdcd;
-	scrollbar-track-color: #f0f0f0;
-	scrollbar-highlight-color: #cdcdcd;
-	scrollbar-shadow-color: #cdcdcd;
-	scrollbar-3dlight-color: #f0f0f0;
-	scrollbar-arrow-color: #606060;
-	scrollbar-darkshadow-color: #cdcdcd;
-}
-
 .container {
 	height: 100%;
 	overflow-y: scroll;
 }
 
 .content {
+	position: relative;
 	font-size: 18px;
 	line-height: 25px;
 	word-break: break-all;
@@ -102,11 +61,6 @@ body {
 	color: #d32;
 }
 
-body,input,button,textarea {
-	font-family: \"Microsoft YaHei\", \5FAE\8F6F\96C5\9ED1, arial,
-		sans-serif;
-}
-
 .modal-title {
 	overflow: hidden;
 	white-space: nowrap;
@@ -125,9 +79,14 @@ body,input,button,textarea {
 .container .row .row {
 	border: thin solid #ccc;
 	border-radius: 12px;
-	overflow: hidden;
 	padding-top: 10px;
+	background: url(../../asserts/images/backgrounds/body.jpg);
+	font-size: 12px;
+	line-height: 22px;
+	color: #5f5f5f;
+	min-height: 100%;
 	position: relative;
+	overflow: hidden;
 }
 
 blockquote {

@@ -1,11 +1,11 @@
-var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http) {
+var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http,$swipe) {
 	
 	$scope.isMarked = false;
 	$scope.comment = true;
 	
 	var clientHeight  = document.body.clientHeight;
 	$("body>.container .content").css("max-height",(clientHeight-150) + "px");
-	setInterval(function(){
+	$interval(function(){
 		if(clientHeight != document.body.clientHeight) {
 			clientHeight = document.body.clientHeight;
 			$("body>.container .content").css("max-height",(clientHeight-150) + "px");
@@ -62,12 +62,29 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 			$scope.start = 0;
 		}
 		$scope.request();
+		
 	};
 	
 	$scope.next = function(){
 		$scope.start = $scope.start + $scope.limit;
 		$scope.request();
 	};
+	
+	/*$swipe.bind($(".content"),{
+		start : function(coords, event) {
+			console.log("s");
+		},
+		move: function(coords, event) {
+			event.currentTarget.style.left = coords.x-88 + "px";
+		},
+		end : function(coords, event) {
+			event.currentTarget.style.left = 500;
+			setTimeout(function() {
+				event.currentTarget.style.left = 0;
+			},200);
+			
+		}
+	});*/
 	
 	$scope.scroll = function(element){
 		
@@ -188,7 +205,7 @@ var ReadCtrl = function($scope, $rootScope, $modal, $interval, $location, $http)
 	};
 	
 	$scope.progressInit = function(){
-		$scope.progress = parseInt(($scope.start+$scope.limit)/$scope.count*100);
+		$scope.progress =parseFloat(($scope.start+$scope.limit)/$scope.count*100).toFixed(1);
 		if($scope.progress > 100) {
 			$scope.progress = 100;
 		}
@@ -224,5 +241,4 @@ var CommentCtrl = function($scope, $rootScope, $location, $timeout, $modalInstan
 	$timeout(function(){
 		duoshuo_box("duoshuo", $scope.currentContent.duoshuokey);
 	},500);
-	
 };
