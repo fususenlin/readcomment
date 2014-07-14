@@ -42,8 +42,11 @@ var ng = {
 	},
 
 	apply : function(scope, fn) {
-		scope.$$phase || scope.$apply();
-		(scope.$$phase || scope.$root.$$phase) ? fn() : scope.$apply(fn);
+		if(fn) {
+			(scope.$$phase || scope.$root.$$phase) ? fn() : scope.$apply(fn);
+		}else {
+			scope.$$phase || scope.$apply();
+		}
 	},
 
 	_toFirstUpperCase : function(str) {
@@ -138,7 +141,14 @@ var ng = {
 
 	_make_routes : function(app, app_module) {
 		app.uri = ng._make_uri(app);
-		app_module.config([ '$routeProvider', function($routeProvider) {
+		app_module.service("$frame", ['$rootScope','$routeProvider', function($rootScope,$routeProvider) {
+			return {
+				path : "",
+				setPath : function(path){
+					service.path = path;
+				}
+			};
+		} ]).config([ '$routeProvider', function($routeProvider) {
 			for (var i = 0; i < app.dependences.length; ++i) {
 				var module = app.dependences[i];
 				ng._make_route(app, module,$routeProvider);

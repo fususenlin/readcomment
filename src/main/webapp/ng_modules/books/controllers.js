@@ -2,7 +2,7 @@ var BooksCtrl = function($scope, $rootScope, $modal, $http) {
 	
 	$scope.del_book = function($index){
 		$http({
-			url : "removeBook",
+			url : "removeBook.action",
 			data : {book:$scope.books.$index}
 		}).success(function(data, status, headers, config) {
 			alert("从书架中移除成功!");
@@ -13,12 +13,12 @@ var BooksCtrl = function($scope, $rootScope, $modal, $http) {
 	
 	$rootScope.refreshBooks = function() {
 		$http({
-			url : "books",
+			url : "books.action",
 			data : {}
 		}).success(function(data, status, headers, config) {
 			$scope.books = data.books;
 		}).error(function(data, status, headers, config) {
-			alert("error");
+			//alert("error");
 		});
 	};
 	

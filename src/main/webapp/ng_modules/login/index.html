@@ -5,6 +5,47 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <iframe scrolling="yes" width="1024" height="600" name="" frameborder="1" src='http://baidu.com'></iframe>
+    <!--滚动开始-->
+    <div id="demo" style="overflow: hidden; height: 139px; width: 232px; background: #f4f4f4; color: #ffffff;">
+        <div id="demo1">
+            <ul>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+                <li>JS不间断向上滚动</li>
+            </ul>
+        </div>
+        <div id=demo2></div>
+    </div>
+    <script>
+					var speed = 50
+					demo2.innerHTML = demo1.innerHTML
+					function Marquee() {
+						if (demo2.offsetTop - demo.scrollTop <= 0)
+							demo.scrollTop -= demo1.offsetHeight
+						else {
+							demo.scrollTop++
+						}
+					}
+					var MyMar = setInterval(Marquee, speed)
+					demo.onmouseover = function() {
+						clearInterval(MyMar)
+					}
+					demo.onmouseout = function() {
+						MyMar = setInterval(Marquee, speed)
+					}
+				</script>
+    <!--滚动结束-->
+
+
 </body>
 </html>

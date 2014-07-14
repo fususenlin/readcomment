@@ -6,14 +6,16 @@ angular.load({
 	/* 导入的依赖模块 */
 	import : [ 'ngRoute','ngTouch','angularFileUpload', 'ui.bootstrap'],
 	/* 依赖的子模块 ，如果没有预定义,会自动生成模块 和路由 */
-	dependences : [ 'books', 'read', 'login', 'register','upload','authorize','shop']
+	dependences : [ 'books', 'read', 'login','upload','authorize','shop']
 
 }).run(function($rootScope, $location) {
 	console.log("dwqdwqd");
 	
-}).config([ '$routeProvider', function($routeProvider) {
+}).config([ '$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
+	//$locationProvider.hashPrefix("!");
+	$locationProvider.html5Mode(true);
 	$routeProvider.otherwise({
-		redirectTo : '/shop'
+		redirectTo : 'shop'
 	});
 } ]).directive('ngThumb', ['$window', function($window) {
         var helper = {

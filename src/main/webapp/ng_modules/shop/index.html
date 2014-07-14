@@ -6,31 +6,25 @@
 <link href="common/css/tools/circle.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    
-     <div class="header">
+
+    <div class="header">
         <div class="header-ctrls text-right">
             <span class="fa fa-search" ng-click="load_search()"></span>
         </div>
     </div>
-    
-    <div class="col-sm-12 col-md-12" ng-show="books.length==0">
-        <p class="text-center">
-            <i class="fa fa-coffee" style="font-size: 60px"></i>
-        </p>
-        <p class="text-center">还没有书?</p>
-        <p class="text-center">
-            <a class="btn btn-primary" role="button" ng-click="bookUpload()">导入一本</a>
-        </p>
 
-    </div>
-
-    <div class="center-block col-sm-6 col-md-6">
-        <div class="list-group">
-
-            <a href="#" class="list-group-item" ng-repeat="book in books">
-                <h4 class="list-group-item-heading" ng-bind="book.title"></h4>
-                <p class="list-group-item-text" ng-bind="book.author"></p>
-            </a>
+    <div class="col-sm-6 col-md-4" ng-repeat="book in books">
+        <div class="thumbnail">
+            <div class="caption">
+                <blockquote>
+                    <h2 ng-bind="book.title"></h2>
+                    <small ng-bind="book.author"></small>
+                    <p ng-bind="book.note"></p>
+                </blockquote>
+                <p class="text-right">
+                    <a ng-click="collect_book(book.id)" class="btn btn-primary" role="button">加入书架</a>
+                </p>
+            </div>
         </div>
     </div>
 </body>

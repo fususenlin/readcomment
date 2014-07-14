@@ -22,8 +22,7 @@
         <p class="text-center">还没有书?</p>
         <p class="text-center">
             <a class="btn btn-primary" role="button" ng-click="bookUpload()">导入一本</a>
-        </p>        
-        
+        </p>
     </div>
     <div class="col-sm-6 col-md-4" ng-repeat="book in books">
         <div class="thumbnail">
@@ -35,7 +34,7 @@
                 </blockquote>
                 <p class="text-right">
                     <span class="btn btn-default" role="button" ng-click="del_book($index)">移除</span>
-                    <a href="#/read?book={{book.id}}&title={{book.title}}&count={{book.count}}" class="btn btn-primary" role="button">阅读</a>
+                    <a href="#/read?id={{book.id}}&title={{book.title}}&count={{book.count}}" class="btn btn-primary" role="button">阅读</a>
                 </p>
             </div>
         </div>

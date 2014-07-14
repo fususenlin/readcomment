@@ -55,6 +55,11 @@ body {
 strong { font-weight: 700; }
 .red { color: #eb4141; }
 
+
+.thumbnail .caption h2{
+    height:2em;
+}
+
 /* ===============================顶部标志=========================== */
 #top {
 	background: url(../../asserts/images/backgrounds/top.jpg) repeat-x 0 0;
@@ -68,7 +73,6 @@ strong { font-weight: 700; }
 .wrapper {
 	margin: 0 30px;
 }
-
 
 .topNav {
 	float: right;

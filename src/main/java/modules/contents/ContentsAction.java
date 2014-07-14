@@ -44,6 +44,7 @@ public class ContentsAction extends ActionSupport {
 			DBObject obj = cursor.next();
 			Content content = new Content();
 			content.setContent(obj.get("content").toString());
+			content.setId(obj.get("_id").toString());
 			contents.add(content);
 			System.out.println(obj.toString());
 		}

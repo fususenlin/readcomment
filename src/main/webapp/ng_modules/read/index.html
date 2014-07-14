@@ -37,7 +37,7 @@
             </li>
         </ul>
         <div class="content" onscroll="angular.element(this).scope().scroll(this)">
-            <p ng-repeat="content in contents track by $index" ng-click="duoshuo($index)" ng-if="content.content" ng-init="content.duoshuo=true">
+            <p ng-init="init(this)" ng-repeat="content in contents track by $index" ng-click="duoshuo($index)" ng-if="content.content" ng-init="content.duoshuo=true">
                 <span ng-bind="content.content"></span>
             </p>
         </div>

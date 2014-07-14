@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="developer">
 <head>
+<base href="/readcomment/">
 <meta charset="utf-8" />
 
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<title ng-bind="header||'品阅中文网'"></title>
+<title ng-bind="'基本框架'"></title>
 
 <link href="favicon.ico" type="image/x-icon" rel=icon />
 <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
@@ -62,12 +63,12 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand hidden-sm" ng-href="#">品阅中文网</a>
+                <a class="navbar-brand hidden-sm" ng-href="#">框架结构</a>
             </div>
             <div class="navbar-collapse collapse" style="height: 1px;">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a ng-href="#">
+                        <a ng-href="shop">
                             <i class="fa fa-home fa-fw"></i>首页
                         </a>
                     </li>
@@ -78,12 +79,12 @@
                         </a>
                     </li> -->
                     <li>
-                        <a ng-href="#/books">
+                        <a ng-href="books">
                             <i class="fa fa-inbox fa-fw"></i>我的书架
                         </a>
                     </li>
                     <li>
-                        <a ng-href="#/books">
+                        <a ng-href="books">
                             <i class="fa fa-bookmark fa-fw"></i>我的书签
                         </a>
                     </li>
@@ -138,7 +139,7 @@
                         </ul>
                     </li> -->
                     <li>
-                        <a ng-href="#/connect">
+                        <a ng-href="connect">
                             <i class="fa fa-phone fa-fw"></i>联系我们
                         </a>
                     </li>

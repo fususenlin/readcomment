@@ -1,8 +1,12 @@
 var ShopCtrl = function($scope, $rootScope, $modal, $http) {
 	
+
+	/**
+	 * 获取所有书籍
+	 */
 	$rootScope.refreshBooks = function() {
 		$http({
-			url : "books",
+			url : "books.action",
 			data : {}
 		}).success(function(data, status, headers, config) {
 			$scope.books = data.books;
@@ -19,6 +23,13 @@ var ShopCtrl = function($scope, $rootScope, $modal, $http) {
 			controller : 'ShopSearchCtrl'
 		});
 	};
+	
+	/**
+	 * 加入我的书架
+	 */
+	$scope.collect_book= function() {
+		
+	};
 };
 
 var ShopSearchCtrl = function($scope, $rootScope, $modalInstance, $http) {
@@ -29,7 +40,7 @@ var ShopSearchCtrl = function($scope, $rootScope, $modalInstance, $http) {
 	$scope.search = function() {
 		
 		$http({
-			url : "searchBooks",
+			url : "searchBooks.action",
 			param : {},
 			method:"POST"
 		}).success(function(data, status, headers, config) {

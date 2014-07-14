@@ -19,35 +19,38 @@ public class BooksAction extends ActionSupport {
 
 	@Override
 	public String execute() throws IOException {
-		
+
 		books = new ArrayList<Book>();
 		Mongo mongo = new Mongo("localhost", 27017);
 		DB db = mongo.getDB("readcomment");
 
 		DBCollection booksCollection = db.getCollection("books");
 
-        // 使用collection的find方法查找document
+		// 使用collection的find方法查找document
 		DBCursor cursor = booksCollection.find();
 		if (this.getLimit() != 0) {
 			cursor.limit(this.getLimit());
 		}
 		cursor.skip(start);
-        //循环输出结果
-        while (cursor.hasNext()) {
-			DBObject obj = cursor.next();
-			Book book = new Book();
-			book.setId(obj.get("_id").toString());
-			book.setTitle(obj.get("title").toString());
-			book.setAuthor(obj.get("author").toString());
-			book.setCount(Integer.valueOf(obj.get("count").toString()));
-			books.add(book);
-			System.out.println(obj.toString());
+		// 循环输出结果
+		while (cursor.hasNext()) {
+			dosome(cursor);
 		}
 
 		mongo.close();
 		return "success";
 	}
 
+	public void dosome(DBCursor cursor) {
+		DBObject obj = cursor.next();
+		Book book = new Book();
+		book.setId(obj.get("_id").toString());
+		book.setTitle(obj.get("title").toString());
+		book.setAuthor(obj.get("author").toString());
+		book.setCount(Integer.valueOf(obj.get("count").toString()));
+		books.add(book);
+		System.out.println(obj.toString());
+	}
 
 	public int getStart() {
 		return start;
@@ -61,13 +64,9 @@ public class BooksAction extends ActionSupport {
 		return limit;
 	}
 
-
-
 	public void setLimit(int limit) {
 		this.limit = limit;
 	}
-
-
 
 	public List<Book> getBooks() {
 		return books;
